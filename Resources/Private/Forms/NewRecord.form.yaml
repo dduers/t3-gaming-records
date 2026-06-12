@@ -143,10 +143,10 @@ renderables:
           elementDescription: "Enter the score you achieved"
           # fluidAdditionalAttributes:
           #   required: required
-        validators:
-          # - identifier: NotEmpty
-          - identifier: Integer
-        defaultValue: null
+        # validators:
+        #   - identifier: NotEmpty
+        #   - identifier: Integer
+        # defaultValue: null
       - type: Text
         identifier: text-time
         label: Time
@@ -156,7 +156,7 @@ renderables:
           #   required: required
         # validators:
         #   - identifier: NotEmpty
-        defaultValue: null
+        # defaultValue: ""
       - type: Textarea
         identifier: textarea-description
         label: Description

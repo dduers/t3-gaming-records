@@ -17,8 +17,16 @@ class ProcessFormNewRecordData extends AbstractFinisher implements FinisherInter
         $formState = $this->finisherContext->getFormRuntime()->getFormState();
 
         $formEvalRecordTime = GeneralUtility::makeInstance(AdvancedDateTime::class);
-        $scoreTimeEvaluated = $formEvalRecordTime->dateTimeToUTimestamp($formValues['text-time']);
 
-        $formState->setFormValue('text-time', $scoreTimeEvaluated);
+        if ($formValues['text-time'] === "") {
+            $formState->setFormValue('text-time', null);
+        } else {
+            $scoreTimeEvaluated = $formEvalRecordTime->dateTimeToUTimestamp($formValues['text-time']);
+            $formState->setFormValue('text-time', $scoreTimeEvaluated);
+        }
+
+        if ($formValues['text-score'] === "") {
+            $formState->setFormValue('text-score', null);
+        }
     }
 }
