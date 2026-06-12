@@ -73,7 +73,7 @@ class RecordRepository extends Repository
         $groupByFields = $selectFields;
         $selectLiterals = [
             $recordMode === 'speedrun'
-                ? $queryBuilder->expr()->min('time', 'best_time')
+                ? $queryBuilder->expr()->max('time', 'best_time')
                 : $queryBuilder->expr()->max('score', 'best_score')
         ];
         $subQuery = $queryBuilder
