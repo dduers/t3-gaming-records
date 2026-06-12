@@ -1,15 +1,13 @@
 <div class="container">
-
     <div class="row mb-3">
         <div class="col-md-12">
-            <f:render partial="Record/Header" arguments="{data: data.record}" />
+            <f:render partial="RecordNew/Header" arguments="{data: data}" />
         </div>
     </div>
 
     <div class="row mb-5">
         <div class="col-md-12">
-            <f:render partial="Record/Table" arguments="{data: data.record, view: view.record}" />
+            <f:render partial="RecordNew/Form" arguments="{data: data}" />
         </div>
     </div>
-
 </div>

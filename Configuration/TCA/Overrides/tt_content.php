@@ -3,6 +3,9 @@
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
 
+/**
+ * Game Pages
+ */
 $flexForm = 'FILE:EXT:t3_gaming_records/Configuration/FlexForms/game_page.xml';
 $ctypeKey = ExtensionUtility::registerPlugin(
     't3_gaming_records',
@@ -20,6 +23,9 @@ ExtensionManagementUtility::addToAllTCAtypes(
     'after:subheader',
 );
 
+/**
+ * Game Partials
+ */
 $flexForm = 'FILE:EXT:t3_gaming_records/Configuration/FlexForms/game_table.xml';
 $ctypeKey = ExtensionUtility::registerPlugin(
     't3_gaming_records',
@@ -36,7 +42,6 @@ ExtensionManagementUtility::addToAllTCAtypes(
     $ctypeKey,
     'after:subheader',
 );
-
 ExtensionUtility::registerPlugin(
     't3_gaming_records',
     'GameHeader',
@@ -62,8 +67,9 @@ ExtensionUtility::registerPlugin(
     'Show the description text of a game'
 );
 
-
-
+/**
+ * Player Pages
+ */
 $flexForm = 'FILE:EXT:t3_gaming_records/Configuration/FlexForms/player_page.xml';
 $ctypeKey = ExtensionUtility::registerPlugin(
     't3_gaming_records',
@@ -81,6 +87,9 @@ ExtensionManagementUtility::addToAllTCAtypes(
     'after:subheader',
 );
 
+/**
+ * Player Partials
+ */
 $flexForm = 'FILE:EXT:t3_gaming_records/Configuration/FlexForms/player_table.xml';
 $ctypeKey = ExtensionUtility::registerPlugin(
     't3_gaming_records',
@@ -106,8 +115,9 @@ ExtensionUtility::registerPlugin(
     'Display the player header'
 );
 
-
-
+/**
+ * Record Pages
+ */
 $flexForm = 'FILE:EXT:t3_gaming_records/Configuration/FlexForms/record_page.xml';
 $ctypeKey = ExtensionUtility::registerPlugin(
     't3_gaming_records',
@@ -124,6 +134,26 @@ ExtensionManagementUtility::addToAllTCAtypes(
     $ctypeKey,
     'after:subheader',
 );
+$flexForm = 'FILE:EXT:t3_gaming_records/Configuration/FlexForms/form_newrecord.xml';
+$ctypeKey = ExtensionUtility::registerPlugin(
+    't3_gaming_records',
+    'RecordNew',
+    'New Record',
+    'game-record',
+    'Gaming Records (Pages)',
+    'Form to submit a new record',
+    $flexForm
+);
+ExtensionManagementUtility::addToAllTCAtypes(
+    'tt_content',
+    '--div--;Pages,pi_flexform,',
+    $ctypeKey,
+    'after:subheader',
+);
+
+/**
+ * Record Partials
+ */
 $flexForm = 'FILE:EXT:t3_gaming_records/Configuration/FlexForms/record_table.xml';
 $ctypeKey = ExtensionUtility::registerPlugin(
     't3_gaming_records',
@@ -155,21 +185,4 @@ ExtensionUtility::registerPlugin(
     'game-record',
     'Gaming Records (Partials)',
     'Show picture gallery of a record'
-);
-
-$flexForm = 'FILE:EXT:t3_gaming_records/Configuration/FlexForms/form_newrecord.xml';
-$ctypeKey = ExtensionUtility::registerPlugin(
-    't3_gaming_records',
-    'FormNewRecord',
-    'New Record Form',
-    'game-record',
-    'Gaming Records (Forms)',
-    'Form to submit a new record',
-    $flexForm
-);
-ExtensionManagementUtility::addToAllTCAtypes(
-    'tt_content',
-    '--div--;Pages,pi_flexform,',
-    $ctypeKey,
-    'after:subheader',
 );

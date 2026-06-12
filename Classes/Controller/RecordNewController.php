@@ -7,7 +7,7 @@ use TYPO3\CMS\Core\Context\Context;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Http\ForwardResponse;
 
-class FormNewRecordController extends BaseController
+class RecordNewController extends BaseController
 {
     /**
      * LIST ACTION

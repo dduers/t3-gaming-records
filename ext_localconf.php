@@ -6,12 +6,12 @@ use Dduers\T3GamingRecords\Controller\GameDescriptionController;
 use Dduers\T3GamingRecords\Controller\GameHeaderController;
 use Dduers\T3GamingRecords\Controller\GamePictureController;
 use Dduers\T3GamingRecords\Controller\GameTableController;
-use Dduers\T3GamingRecords\Controller\FormNewRecordController;
 use Dduers\T3GamingRecords\Controller\PlayerController;
 use Dduers\T3GamingRecords\Controller\PlayerHeaderController;
 use Dduers\T3GamingRecords\Controller\PlayerTableController;
 use Dduers\T3GamingRecords\Controller\RecordController;
 use Dduers\T3GamingRecords\Controller\RecordHeaderController;
+use Dduers\T3GamingRecords\Controller\RecordNewController;
 use Dduers\T3GamingRecords\Controller\RecordPictureController;
 use Dduers\T3GamingRecords\Controller\RecordTableController;
 
@@ -94,13 +94,13 @@ ExtensionUtility::configurePlugin(
 
 ExtensionUtility::configurePlugin(
     't3_gaming_records',
-    'FormNewRecord',
+    'RecordNew',
     [
-        FormNewRecordController::class => 'show, perform',
+        RecordNewController::class => 'show, perform',
     ],
     // non-cacheable actions
     [
-        FormNewRecordController::class => 'perform',
+        RecordNewController::class => 'perform',
     ],
     ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
 );
