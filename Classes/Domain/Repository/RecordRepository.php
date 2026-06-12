@@ -102,7 +102,10 @@ class RecordRepository extends Repository
             $queryBuilder->expr()->eq('t.difficulty_id', $queryBuilder->quoteIdentifier('s.difficulty_id')),
             $recordMode === 'speedrun'
                 ? $queryBuilder->expr()->eq('t.time', $queryBuilder->quoteIdentifier('s.best_time'))
-                : $queryBuilder->expr()->eq('t.score', $queryBuilder->quoteIdentifier('s.best_score'))
+                : $queryBuilder->expr()->eq('t.score', $queryBuilder->quoteIdentifier('s.best_score')),
+            $recordMode === 'speedrun'
+                ? $queryBuilder->expr()->isNotNull('t.time')
+                : $queryBuilder->expr()->isNotNull('t.score'),
         ]);
 
         $records = $queryBuilder
@@ -154,7 +157,8 @@ class RecordRepository extends Repository
                 (new AdvancedDateTime())->uTimestampToDateTime($record['time'])
             );
             $object->setScore(
-                /*number_format(*/$record['score']/*, 0, '.', '\'')*/
+                /*number_format(*/
+                $record['score']/*, 0, '.', '\'')*/
             );
             $object->setDate($record['date']);
             $object->setDescription($record['description'] ?? '');
