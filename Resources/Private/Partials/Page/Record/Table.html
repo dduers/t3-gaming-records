@@ -1,0 +1,101 @@
+<f:if condition="{data}">
+    <div class="shadow border p-3">
+        <table class="{view.table.classes} t3gamingrecords-table-{view.table.object}">
+            <thead>
+                <tr>
+                    <th>Player</th>
+                    <th>Game</th>
+                    <th>Difficulty</th>
+                    <th>Level</th>
+                    <th>Time</th>
+                    <th>Score</th>
+                    <th>Date</th>
+                    <f:if condition="{settings.enableRecordDetailLink}">
+                        <th>Reference</th>
+                    </f:if>
+                </tr>
+            </thead>
+
+            <tbody>
+                <f:for each="{data}" as="d">
+                    <tr>
+                        <td>
+                            <f:if condition="{settings.enablePlayerDetailLink}">
+                                <f:then>
+                                    <f:link.action controller="Player" pluginName="player" action="detail"
+                                        arguments="{playerId: d.playerId}" pageUid="{settings.playerDetailPid}">
+                                        <f:if condition="{d.playerDisplayName}">
+                                            <f:then>{d.playerDisplayName}</f:then>
+                                            <f:else>{d.playerId}</f:else>
+                                        </f:if>
+                                    </f:link.action>
+                                </f:then>
+                                <f:else>
+                                    <f:if condition="{d.playerDisplayName}">
+                                        <f:then>{d.playerDisplayName}</f:then>
+                                        <f:else>{d.playerId}</f:else>
+                                    </f:if>
+                                </f:else>
+                            </f:if>
+                        </td>
+                        <td>
+                            <f:if condition="{settings.enableGameDetailLink}">
+                                <f:then>
+                                    <f:link.action controller="Game" pluginName="game" action="detail"
+                                        arguments="{gameId: d.gameId}" pageUid="{settings.gameDetailPid}">
+                                        <f:if condition="{d.gameTitle}">
+                                            <f:then>{d.gameTitle}</f:then>
+                                            <f:else>{d.gameId}</f:else>
+                                        </f:if>
+                                    </f:link.action>
+                                </f:then>
+                                <f:else>
+                                    <f:if condition="{d.gameTitle}">
+                                        <f:then>{d.gameTitle}</f:then>
+                                        <f:else>{d.gameId}</f:else>
+                                    </f:if>
+                                </f:else>
+                            </f:if>
+                        </td>
+                        <td>
+                            <f:if condition="{d.difficultyTitle}">
+                                <f:then>{d.difficultyTitle}</f:then>
+                                <f:else>{d.difficultyId}</f:else>
+                            </f:if>
+                        </td>
+                        <td>
+                            <f:if condition="{d.levelTitle}">
+                                <f:then>{d.levelTitle}</f:then>
+                                <f:else>{d.levelId}</f:else>
+                            </f:if>
+                        </td>
+                        <td>
+                            <f:if condition="{d.time}">
+                                {d.time}
+                            </f:if>
+                        </td>
+                        <td>
+                            <f:if condition="{d.score}">
+                                <f:format.number decimals="0" decimalSeparator="." thousandsSeparator="'">
+                                    {d.score}
+                                </f:format.number>
+                            </f:if>
+                        </td>
+                        <td>
+                            <f:format.date date="{d.date}" format="d.m.Y" />
+                        </td>
+                        <f:if condition="{settings.enableRecordDetailLink}">
+                            <td>
+                                <f:link.action controller="Record" pluginName="record" action="detail"
+                                    pageUid="{settings.recordDetailPid}"
+                                    arguments="{recordId: d.uid, gameId: d.gameId, levelId: d.levelId, difficultyId: d.difficultyId}">
+                                    Entry #{d.uid}
+                                </f:link.action>
+                            </td>
+                        </f:if>
+                    </tr>
+                </f:for>
+            </tbody>
+        </table>
+    </div>
+</f:if>

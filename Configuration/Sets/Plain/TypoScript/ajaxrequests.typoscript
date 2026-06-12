@@ -1,0 +1,17 @@
+ajaxResponse = PAGE
+ajaxResponse {
+    typeNum = 458962
+    config {
+        disableAllHeaderCode = 1
+        additionalHeaders.10.header = Content-Type: application/json
+    }
+    10 = USER
+    10 {
+        userFunc = TYPO3\CMS\Extcore\Core\Bootstrap->run
+        vendorName = Dduers
+        extensionName = t3_gaming_records
+        pluginName = game
+        action = list
+        switchableControllerActions.game.1 = list
+    }
+}

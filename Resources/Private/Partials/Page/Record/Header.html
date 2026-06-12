@@ -1,0 +1,24 @@
+<f:if condition="{data.1}">
+    <f:then>
+        <f:switch expression="{settings.recordMode}">
+            <f:case value="speedrun">
+                <h2>Speedruns</h2>
+                <h4>These are the fastest times</h4>
+            </f:case>
+            <f:case value="highscore">
+                <h2>Highscores</h2>
+                <h4>These are the highest scores</h4>
+            </f:case>
+            <f:defaultCase>
+                <h2>Records</h2>
+                <h4>These are the best records</h4>
+            </f:defaultCase>
+        </f:switch>
+    </f:then>
+    <f:else>
+        <f:if condition="{data.0}">
+            <h2>{data.0.playerDisplayName}</h2>
+            <h4>{data.0.gameTitle} - {data.0.levelTitle}, {data.0.difficultyTitle}</h4>
+        </f:if>
+    </f:else>
+</f:if>

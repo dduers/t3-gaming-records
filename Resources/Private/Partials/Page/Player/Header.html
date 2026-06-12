@@ -1,0 +1,14 @@
+<f:if condition="{data}">
+    <f:then>
+        <h2>{data.0.username}</h2>
+        <h4>{data.0.firstName} {data.0.lastName}
+            <f:if condition="{data.0.email}">
+                &lt;{data.0.email}&gt;
+            </f:if>
+        </h4>
+    </f:then>
+    <f:else>
+        <h2>Players</h2>
+        <h4>Choose a player from the list to view the profile information</h4>
+    </f:else>
+</f:if>

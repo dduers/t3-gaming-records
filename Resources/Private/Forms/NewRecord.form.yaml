@@ -1,0 +1,181 @@
+identifier: formNewRecord
+type: Form
+label: "New Record"
+prototypeName: standard
+renderingOptions:
+  submitButtonLabel: Submit
+finishers:
+  - identifier: ProcessFormNewRecordData
+  - identifier: SaveToDatabase
+    options:
+      - &firstDatabaseOperation
+        table: "tx_t3gamingrecords_domain_model_record"
+        mode: insert
+        databaseColumnMappings:
+          crdate:
+            value: "{__currentTimestamp}"
+          tstamp:
+            value: "{__currentTimestamp}"
+        elements:
+          text-player-id:
+            mapOnDatabaseColumn: "player_id"
+          text-pid:
+            mapOnDatabaseColumn: "pid"
+          select-game-id:
+            mapOnDatabaseColumn: "game_id"
+          select-level-id:
+            mapOnDatabaseColumn: "level_id"
+          select-difficulty-id:
+            mapOnDatabaseColumn: "difficulty_id"
+          text-score:
+            mapOnDatabaseColumn: "score"
+          text-time:
+            mapOnDatabaseColumn: "time"
+          date-date:
+            mapOnDatabaseColumn: "date"
+          textarea-description:
+            mapOnDatabaseColumn: "description"
+          file-upload-image:
+            mapOnDatabaseColumn: "fal_media"
+            skipIfValueIsEmpty: true
+  - identifier: Confirmation
+variants:
+  - identifier: conditional-finishers
+    condition: 'traverse(formValues, "file-upload-image") != ""'
+    finishers:
+      - identifier: ProcessFormNewRecordData
+      - identifier: SaveToDatabase
+        options:
+          - <<: *firstDatabaseOperation
+          - table: sys_file_reference
+            mode: insert
+            elements:
+              text-pid:
+                mapOnDatabaseColumn: "pid"
+              file-upload-image:
+                mapOnDatabaseColumn: "uid_local"
+                skipIfValueIsEmpty: true
+            databaseColumnMappings:
+              tablenames:
+                value: tx_t3gamingrecords_domain_model_record
+              fieldname:
+                value: fal_media
+              tstamp:
+                value: "{__currentTimestamp}"
+              crdate:
+                value: "{__currentTimestamp}"
+              showinpreview:
+                value: 1
+              uid_foreign:
+                value: "{SaveToDatabase.insertedUids.0}"
+      - identifier: Confirmation
+renderables:
+  - renderingOptions:
+      previousButtonLabel: "Previous step"
+      nextButtonLabel: "Next step"
+    type: Page
+    identifier: page-1
+    label: Choose game
+    renderables:
+      - type: SingleSelectFromDatabase
+        identifier: select-game-id
+        label: Game
+        properties:
+          table: "game"
+          elementDescription: "Choose the game where you achieved the highscore"
+          fluidAdditionalAttributes:
+            required: required
+        validators:
+          - identifier: NotEmpty
+        defaultValue: ""
+  - renderingOptions:
+      previousButtonLabel: "Previous step"
+      nextButtonLabel: "Next step"
+    type: Page
+    identifier: page-2
+    label: Record details
+    renderables:
+      - type: Hidden
+        identifier: text-player-id
+        validators:
+          - identifier: Integer
+        defaultValue: ""
+      - type: Hidden
+        identifier: text-pid
+        validators:
+          - identifier: Integer
+      - type: Date
+        identifier: date-date
+        label: Date
+        properties:
+          elementDescription: "Enter the date when you achieved the highscore"
+          fluidAdditionalAttributes:
+            required: required
+        validators:
+          - identifier: NotEmpty
+        defaultValue: ""
+      - type: SingleSelectFromDatabase
+        identifier: select-level-id
+        label: Level
+        properties:
+          table: "level"
+          elementDescription: "Choose the level where you achieved the highscore"
+          fluidAdditionalAttributes:
+            required: required
+        validators:
+          - identifier: NotEmpty
+        defaultValue: ""
+      - type: SingleSelectFromDatabase
+        identifier: select-difficulty-id
+        label: Difficulty
+        properties:
+          table: "difficulty"
+          elementDescription: "Choose the difficulty level where you achieved the highscore"
+          fluidAdditionalAttributes:
+            required: required
+        validators:
+          - identifier: NotEmpty
+        defaultValue: ""
+      - type: Text
+        identifier: text-score
+        label: Score
+        properties:
+          elementDescription: "Enter the score you achieved"
+          fluidAdditionalAttributes:
+            required: required
+        validators:
+          - identifier: NotEmpty
+          - identifier: Integer
+        defaultValue: ""
+      - type: Text
+        identifier: text-time
+        label: Time
+        properties:
+          elementDescription: "Enter the time you achieved"
+          fluidAdditionalAttributes:
+            required: required
+        validators:
+          - identifier: NotEmpty
+        defaultValue: ""
+      - type: Textarea
+        identifier: textarea-description
+        label: Description
+        properties:
+          elementDescription: "Enter an optional description for your record"
+        defaultValue: ""
+      - type: ImageUpload
+        identifier: file-upload-image
+        label: Image
+        properties:
+          saveToFileMount: '1:/comeun1ty.net/images/gaming/records/'
+          allowedMimeTypes:
+            - image/jpeg
+            - image/png
+          imageLinkMaxWidth: 500
+          imageMaxWidth: 500
+          imageMaxHeight: 500
+          containerClassAttribute: input
+          elementClassAttribute: lightbox
+          elementErrorClassAttribute: error
+          elementDescription: "Upload an optional image for your record"
+        defaultValue: ""

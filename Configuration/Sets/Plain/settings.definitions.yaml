@@ -1,0 +1,28 @@
+categories:
+  T3GamingRecords:
+    label: 'Gaming Records'
+  T3GamingRecords.templates:
+    label: 'Templates'
+    parent: T3GamingRecords
+
+settings:
+  T3GamingRecords.view.templateRootPath:
+    label: 'Page template path'
+    category: T3GamingRecords.templates
+    description: 'Path to the templates of the Site Package.'
+    type: string
+    default: 'EXT:t3_gaming_records/Resources/Private/Templates/Page/'
+
+  T3GamingRecords.view.partialRootPath:
+    label: 'Page partial path'
+    category: T3GamingRecords.templates
+    description: 'Path to the partials of the Site Package.'
+    type: string
+    default: 'EXT:t3_gaming_records/Resources/Private/Partials/Page/'
+
+  T3GamingRecords.view.layoutRootPath:
+    label: 'Page layout path'
+    category: T3GamingRecords.templates
+    description: 'Path to the layouts of the Site Package.'
+    type: string
+    default: 'EXT:t3_gaming_records/Resources/Private/Layouts/Page/'

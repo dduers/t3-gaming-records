@@ -1,0 +1,52 @@
+<f:if condition="{data}">
+    <div class="shadow border p-3">
+        <table class="{view.table.classes} t3gamingrecords-table-{view.table.object}">
+            <thead>
+                <tr>
+                    <th>Player</th>
+                    <th>Display Name</th>
+                    <th>Forename</th>
+                    <th>Lastname</th>
+                    <th>Email</th>
+                    <th>Homepage</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <f:for each="{data}" as="d">
+                    <tr>
+                        <td>
+                            <f:if condition="{settings.enablePlayerDetailLink}">
+                                <f:then>
+                                    <f:link.action controller="Player" pluginName="player" action="detail"
+                                        pageUid="{settings.playerDetailPid}" arguments="{playerId: d.uid}">
+                                        <f:if condition="{d.username}">
+                                            <f:then>{d.username}</f:then>
+                                            <f:else>{d.uid}</f:else>
+                                        </f:if>
+                                    </f:link.action>
+                                </f:then>
+                                <f:else>
+                                    <f:if condition="{d.username}">
+                                        <f:then>{d.username}</f:then>
+                                        <f:else>{d.uid}</f:else>
+                                    </f:if>
+                                </f:else>
+                            </f:if>
+                        </td>
+                        <td>{d.name}</td>
+                        <td>{d.firstName}</td>
+                        <td>{d.lastName}</td>
+                        <td>{d.email}</td>
+                        <td>{d.www}</td>
+                        <td>
+                            <f:if condition="{d.crdate}">
+                                <f:format.date date="{d.crdate}" format="d.m.Y" />
+                            </f:if>
+                        </td>
+                    </tr>
+                </f:for>
+            </tbody>
+        </table>
+    </div>
+</f:if>

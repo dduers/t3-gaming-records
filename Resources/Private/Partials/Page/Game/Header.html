@@ -1,0 +1,14 @@
+<f:if condition="{data}">
+    <f:then>
+        <h2>{data.0.title} ({data.0.platformTitle})</h2>
+        <h4>{data.0.publisherTitle}<f:if condition="{data.0.dateRelease}">
+                <f:if condition="{data.0.publisherTitle}">,</f:if>
+                <f:format.date date="{data.0.dateRelease}" format="Y" />
+            </f:if>
+        </h4>
+    </f:then>
+    <f:else>
+        <h2>Games</h2>
+        <h4>Choose from the list to view the game details</h4>
+    </f:else>
+</f:if>

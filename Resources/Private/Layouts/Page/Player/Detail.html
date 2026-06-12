@@ -1,0 +1,42 @@
+<div class="container">
+
+    <div class="row mb-3">
+        <div class="col-md-12">
+            <f:render partial="Player/Header" arguments="{data: data.playerheader}" />
+        </div>
+    </div>
+   
+    <div class="row mb-5">
+        <div class="col-md-12">
+            <f:render partial="Player/Table" arguments="{data: data.player, view: view.player}" />
+        </div>
+    </div>
+
+    <f:if condition="{settings.enableRecordSpeedruns}">
+        <div class="row mb-3">
+            <div class="col-md-12">
+                <f:render partial="Record/Header"
+                    arguments="{data: data.recordSpeedrun, settings: settings_speedrun}" />
+            </div>
+        </div>
+        <div class="row mb-5">
+            <div class="col-md-12">
+                <f:render partial="Record/Table" arguments="{data: data.recordSpeedrun, view: view.record}" />
+            </div>
+        </div>
+    </f:if>
+
+    <f:if condition="{settings.enableRecordHighscores}">
+        <div class="row mb-3">
+            <div class="col-md-12">
+                <f:render partial="Record/Header"
+                    arguments="{data: data.recordHighscore, settings: settings_highscore}" />
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-12">
+                <f:render partial="Record/Table" arguments="{data: data.recordHighscore, view: view.record}" />
+            </div>
+        </div>
+    </f:if>
+</div>

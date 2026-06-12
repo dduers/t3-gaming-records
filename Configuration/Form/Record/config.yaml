@@ -1,0 +1,10 @@
+name: dduers/t3-gaming-records-formset-record
+label: "Gaming Records - Record"
+# Load order: lower = loaded first. Core base set uses priority 10.
+# Extension sets should use > 10 (default: 100) to overlay the base.
+priority: 200
+
+# Form configuration goes directly below the metadata:
+persistenceManager:
+  allowedExtensionPaths:
+    10: "EXT:t3_gaming_records/Resources/Private/Forms/"

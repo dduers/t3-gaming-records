@@ -1,0 +1,285 @@
+<?xml version="1.0"?>
+<T3DataStructure>
+	<sheets>
+		<!--
+			################################
+			  SHEET General Settings
+			################################
+		-->
+		<sDEF>
+			<ROOT>
+				<sheetTitle>Settings</sheetTitle>
+				<type>array</type>
+				<el>
+					<!-- order -->
+					<settings.orderBy>
+						<label>Sort By</label>
+						<config>
+							<default>game_id</default>
+							<eval>required</eval>
+							<type>select</type>
+							<renderType>selectSingle</renderType>
+							<items>
+								<numIndex index="0" type="array">
+									<numIndex index="0"></numIndex>
+									<numIndex index="1"></numIndex>
+								</numIndex>
+								<numIndex index="1" type="array">
+									<numIndex index="0">Game Title</numIndex>
+									<numIndex index="1">game_id</numIndex>
+								</numIndex>
+								<numIndex index="2" type="array">
+									<numIndex index="0">Registration date</numIndex>
+									<numIndex index="1">crdate</numIndex>
+								</numIndex>
+								<numIndex index="3" type="array">
+									<numIndex index="0">Last updated</numIndex>
+									<numIndex index="1">tstamp</numIndex>
+								</numIndex>
+							</items>
+						</config>
+					</settings.orderBy>
+					<!-- order direction  -->
+					<settings.orderDirection>
+						<label>Sort direction</label>
+						<config>
+							<default>asc</default>
+							<eval>required</eval>
+							<type>select</type>
+							<renderType>selectSingle</renderType>
+							<items>
+								<numIndex index="0" type="array">
+									<numIndex index="0"></numIndex>
+									<numIndex index="1"></numIndex>
+								</numIndex>
+								<numIndex index="1" type="array">
+									<numIndex index="0">Ascending</numIndex>
+									<numIndex index="1">asc</numIndex>
+								</numIndex>
+								<numIndex index="2" type="array">
+									<numIndex index="0">Descending</numIndex>
+									<numIndex index="1">desc</numIndex>
+								</numIndex>
+							</items>
+						</config>
+					</settings.orderDirection>
+					<!-- startingpoint -->
+					<settings.recordDataPids>
+						<label>Starting point</label>
+						<config>
+							<type>group</type>
+							<allowed>pages</allowed>
+							<size>3</size>
+							<maxitems>50</maxitems>
+							<minitems>0</minitems>
+						</config>
+					</settings.recordDataPids>
+					<!-- recursive -->
+					<settings.recursive>
+						<label>Recursive</label>
+						<config>
+							<type>select</type>
+							<renderType>selectSingle</renderType>
+							<items>
+								<numIndex index="1">
+									<label></label>
+									<value />
+								</numIndex>
+								<numIndex index="2">
+									<label>0</label>
+									<value>0</value>
+								</numIndex>
+								<numIndex index="3">
+									<label>1</label>
+									<value>1</value>
+								</numIndex>
+								<numIndex index="4">
+									<label>2</label>
+									<value>2</value>
+								</numIndex>
+								<numIndex index="5">
+									<label>3</label>
+									<value>3</value>
+								</numIndex>
+								<numIndex index="6">
+									<label>4</label>
+									<value>4</value>
+								</numIndex>
+								<numIndex index="7">
+									<label>5</label>
+									<value>250</value>
+								</numIndex>
+							</items>
+						</config>
+					</settings.recursive>
+				</el>
+			</ROOT>
+		</sDEF>
+		<!--
+			################################
+			  SHEET Additional
+			################################
+		-->
+		<additional>
+			<ROOT>
+				<sheetTitle>Speedruns &amp; Records</sheetTitle>
+				<type>array</type>
+				<el>
+					<!-- PID Detail Page -->
+					<settings.recordDetailPid>
+						<label>Detail page</label>
+						<config>
+							<type>group</type>
+							<allowed>pages</allowed>
+							<relationship>manyToOne</relationship>
+							<size>1</size>
+							<maxitems>1</maxitems>
+							<minitems>0</minitems>
+							<suggestOptions>
+								<default>
+									<addWhere>AND pages.doktype NOT in (6,199,254)</addWhere>
+								</default>
+							</suggestOptions>
+						</config>
+					</settings.recordDetailPid>
+					<!-- PID List Page -->
+					<settings.recordListPid>
+						<label>List page</label>
+						<config>
+							<type>group</type>
+							<allowed>pages</allowed>
+							<relationship>manyToOne</relationship>
+							<size>1</size>
+							<maxitems>1</maxitems>
+							<minitems>0</minitems>
+							<suggestOptions>
+								<default>
+									<addWhere>AND pages.doktype NOT in (6,199,254)</addWhere>
+								</default>
+							</suggestOptions>
+						</config>
+					</settings.recordListPid>
+					<!-- PID Back -->
+					<settings.recordBackPid>
+						<label>Return to page</label>
+						<config>
+							<type>group</type>
+							<allowed>pages</allowed>
+							<relationship>manyToOne</relationship>
+							<size>1</size>
+							<maxitems>1</maxitems>
+							<minitems>0</minitems>
+							<suggestOptions>
+								<default>
+									<addWhere>AND pages.doktype NOT in (6,199,254)</addWhere>
+								</default>
+							</suggestOptions>
+						</config>
+					</settings.recordBackPid>
+				</el>
+			</ROOT>
+		</additional>
+		<!--
+			################################
+			  SHEET Additional
+			################################
+		-->
+		<linkedpages>
+			<ROOT>
+				<sheetTitle>Players &amp; Games</sheetTitle>
+				<type>array</type>
+				<el>
+					<settings.playerDetailPid>
+						<label>Detail Page (Player)</label>
+						<description>This is the page id of a player's detailed profile</description>
+						<config>
+							<type>group</type>
+							<allowed>pages</allowed>
+							<relationship>manyToOne</relationship>
+							<size>1</size>
+							<maxitems>1</maxitems>
+							<minitems>0</minitems>
+							<suggestOptions>
+								<default>
+									<addWhere>AND pages.doktype NOT in (6,199,254)</addWhere>
+								</default>
+							</suggestOptions>
+						</config>
+					</settings.playerDetailPid>
+					<settings.gameDetailPid>
+						<label>Detail Page (Game)</label>
+						<description>This is the page id of a player's detailed profile</description>
+						<config>
+							<type>group</type>
+							<allowed>pages</allowed>
+							<relationship>manyToOne</relationship>
+							<size>1</size>
+							<maxitems>1</maxitems>
+							<minitems>0</minitems>
+							<suggestOptions>
+								<default>
+									<addWhere>AND pages.doktype NOT in (6,199,254)</addWhere>
+								</default>
+							</suggestOptions>
+						</config>
+					</settings.gameDetailPid>
+				</el>
+			</ROOT>
+		</linkedpages>
+
+		<options>
+			<ROOT>
+				<sheetTitle>Options</sheetTitle>
+				<type>array</type>
+				<el>
+					<settings.enableRecordDetailLink>
+						<label>Enable Details Link (Records)</label>
+						<config>
+							<type>check</type>
+							<renderType>checkboxToggle</renderType>
+						</config>
+					</settings.enableRecordDetailLink>
+					<settings.enablePlayerDetailLink>
+						<label>Enable Details Link (Player)</label>
+						<config>
+							<type>check</type>
+							<renderType>checkboxToggle</renderType>
+						</config>
+					</settings.enablePlayerDetailLink>
+					<settings.enableGameDetailLink>
+						<label>Enable Details Link (Game)</label>
+						<config>
+							<type>check</type>
+							<renderType>checkboxToggle</renderType>
+						</config>
+					</settings.enableGameDetailLink>
+					<settings.recordMode>
+						<label>Record Mode</label>
+						<description>Speedrun shows fastest time, whereas Highscore shows the
+							highest score count</description>
+						<config>
+							<default>speedrun</default>
+							<eval>required</eval>
+							<type>select</type>
+							<renderType>selectSingle</renderType>
+							<items>
+								<numIndex index="0" type="array">
+									<numIndex index="0"></numIndex>
+									<numIndex index="1"></numIndex>
+								</numIndex>
+								<numIndex index="1" type="array">
+									<numIndex index="0">Speedrun</numIndex>
+									<numIndex index="1">speedrun</numIndex>
+								</numIndex>
+								<numIndex index="2" type="array">
+									<numIndex index="0">Highscore</numIndex>
+									<numIndex index="1">highscore</numIndex>
+								</numIndex>
+							</items>
+						</config>
+					</settings.recordMode>
+				</el>
+			</ROOT>
+		</options>
+	</sheets>
+</T3DataStructure>

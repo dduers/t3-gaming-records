@@ -1,0 +1,15 @@
+TYPO3:
+  CMS:
+    Form:
+      prototypes:
+        standard:
+          finishersDefinition:
+            ProcessFormNewRecordData:
+              implementationClassName: 'Dduers\T3GamingRecords\Domain\Finishers\ProcessFormNewRecordData'
+          formElementsDefinition:
+            SingleSelectFromDatabase:
+              __inheritances:
+                10: "TYPO3.CMS.Form.prototypes.standard.formElementsDefinition.SingleSelect"
+              implementationClassName: 'Dduers\T3GamingRecords\Domain\Model\FormElements\SingleSelectFromDatabase'
+              renderingOptions:
+                templateName: "SingleSelect"

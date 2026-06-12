@@ -1,0 +1,22 @@
+<div class="container shadow border p-3 mb-5">
+    <formvh:render persistenceIdentifier="EXT:t3_gaming_records/Resources/Private/Forms/NewRecord.form.yaml"
+        overrideConfiguration="{
+        renderables: {
+            1: {
+                renderables: {
+                    0: {
+                        defaultValue: '{data.playerId}'
+                    },
+                    1: {
+                        defaultValue: '{data.recordStoragePid}'
+                    },
+                    8: {
+                        properties: {
+                            saveToFileMount: '{data.imageStorage}'
+                        }
+                    }
+                }
+            }
+        }
+    }" />
+</div>

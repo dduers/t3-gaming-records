@@ -1,0 +1,20 @@
+plugin.tx_t3gamingrecords {
+    mvc.callDefaultActionIfActionCantBeResolved = 1
+    view {
+        templateRootPaths {
+            0 = EXT:t3_gaming_records/Resources/Private/Templates/Page/
+            1 = {$T3GamingRecords.view.templateRootPath}
+        }
+        partialRootPaths {
+            0 = EXT:t3_gaming_records/Resources/Private/Partials/Page/
+            1 = {$T3GamingRecords.view.partialRootPath}
+        }
+        layoutRootPaths {
+            0 = EXT:t3_gaming_records/Resources/Private/Layouts/Page/
+            1 = {$T3GamingRecords.view.layoutRootPath}
+        }
+    }
+    settings {
+        orderByAllowed = title,tstamp,date_release,crdate,username
+    }
+}

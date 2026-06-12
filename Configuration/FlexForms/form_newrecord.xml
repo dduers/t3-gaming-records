@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<T3DataStructure>
+	<sheets>
+		<!--
+			################################
+			  SHEET General Settings
+			################################
+		-->
+		<sDEF>
+			<ROOT>
+				<sheetTitle>Settings</sheetTitle>
+				<type>array</type>
+				<el>
+					<!-- storage pid of highscore and speedrun records -->
+					<settings.recordStoragePid>
+						<label>Record Storage</label>
+						<config>
+							<type>group</type>
+							<allowed>pages</allowed>
+							<size>3</size>
+							<maxitems>1</maxitems>
+							<minitems>1</minitems>
+						</config>
+					</settings.recordStoragePid>
+					<!-- storage folder of the images -->
+					<settings.imageStorage>
+						<label>Image Storage</label>
+						<config>
+							<type>folder</type>
+							<size>3</size>
+							<maxitems>1</maxitems>
+							<minitems>1</minitems>
+						</config>
+					</settings.imageStorage>
+				</el>
+			</ROOT>
+		</sDEF>
+
+	</sheets>
+</T3DataStructure>

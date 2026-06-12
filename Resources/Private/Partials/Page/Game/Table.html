@@ -1,0 +1,40 @@
+<f:if condition="{data}">
+    <div class="shadow border p-3">
+        <table class="{view.table.classes} t3gamingrecords-table-{view.table.object}">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Publisher</th>
+                    <th>Platform</th>
+                    <th>Release Date</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <f:for each="{data}" as="d">
+                    <tr>
+                        <td>
+                            <f:if condition="{settings.enableGameDetailLink}">
+                                <f:then>
+                                    <f:link.action controller="Game" pluginName="game" action="detail"
+                                        pageUid="{settings.gameDetailPid}" arguments="{gameId: d.uid}">
+                                        {d.title}</f:link.action>
+                                </f:then>
+                                <f:else>
+                                    {d.title}
+                                </f:else>
+                            </f:if>
+                        </td>
+                        <td>{d.publisherTitle}</td>
+                        <td>{d.platformTitle}</td>
+                        <td>
+                            <f:if condition="{d.dateRelease}">
+                                <f:format.date date="{d.dateRelease}" format="d.m.Y" />
+                            </f:if>
+                        </td>
+                    </tr>
+                </f:for>
+            </tbody>
+        </table>
+    </div>
+</f:if>
