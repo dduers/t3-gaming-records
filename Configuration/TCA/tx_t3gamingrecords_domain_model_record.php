@@ -81,7 +81,7 @@ return [
                     ['label' => '', 'value' => 0],
                 ],
                 'required' => true,
-                'displayCond' => 'FIELD:player_id:REQ:true',
+                'displayCond' => 'FIELD:player_id:!=:0',
                 'foreign_table' => 'tx_t3gamingrecords_domain_model_game',
             ],
             'onChange' => 'reload',
