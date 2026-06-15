@@ -72,7 +72,7 @@ class LabelsUserFunc
         $playerRecord = $playerRepository->findByUidRaw($playerId);
         $playerUsername = $playerRecord ? $playerRecord[0]->getUsername() : 'Unknown Player';
 
-        $time = ($record['time'] ?? null) ? (new AdvancedDateTime)->uTimestampToDateTime($record['time']) : null;
+        $time = ($record['time'] ?? null) ? (new AdvancedDateTime)->uTimestampToDateTime((int)$record['time']) : null;
         $score = ($record['score'] ?? null) ? number_format($record['score'], 0, '.', '\'') : null;
 
         $label = sprintf('%s - %s, %s / %s - %s, %s', $gameTitle, $levelTitle, $difficultyTitle, $playerUsername, $time ?? 'No Time', $score ?? 'No Score');
