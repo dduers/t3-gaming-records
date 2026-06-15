@@ -51,7 +51,7 @@ class AdvancedDateTime
 
         $dateTimeString = trim($dateTimeString);
         if ($dateTimeString === '') {
-            return 0;
+            return null;
         }
 
         $dataTimeParts = explode('.', $dateTimeString, 2);

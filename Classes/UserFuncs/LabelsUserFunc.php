@@ -7,6 +7,7 @@ use Dduers\T3GamingRecords\Domain\Repository\GameRepository;
 use Dduers\T3GamingRecords\Domain\Repository\LevelRepository;
 use Dduers\T3GamingRecords\Domain\Repository\PlayerRepository;
 use Dduers\T3GamingRecords\Utility\AdvancedDateTime;
+use Dduers\T3GamingRecords\Utility\AdvancedNumber;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
@@ -73,7 +74,7 @@ class LabelsUserFunc
         $playerUsername = $playerRecord ? $playerRecord[0]->getUsername() : 'Unknown Player';
 
         $time = ($record['time'] ?? null) ? (new AdvancedDateTime)->uTimestampToDateTime((int)$record['time']) : null;
-        $score = ($record['score'] ?? null) ? number_format($record['score'], 0, '.', '\'') : null;
+        $score = ($record['score'] ?? null) ? (new AdvancedNumber)->numberToFormatted((int)$record['score']) : null;
 
         $label = sprintf('%s - %s, %s / %s - %s, %s', $gameTitle, $levelTitle, $difficultyTitle, $playerUsername, $time ?? 'No Time', $score ?? 'No Score');
         $params['title'] = $label;

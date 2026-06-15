@@ -1,6 +1,7 @@
 <?php
 
 use Dduers\T3GamingRecords\UserFuncs\LabelsUserFunc;
+use Dduers\T3GamingRecords\Validation\FormEvalRecordScore;
 use Dduers\T3GamingRecords\Validation\FormEvalRecordTime;
 use TYPO3\CMS\Core\Resource\FileType;
 
@@ -131,10 +132,10 @@ return [
             'exclude' => 0,
             'label' => 'Score', 
             'config' => [
-                'type' => 'number',
-                'size' => 15,
+                'type' => 'input',
                 'nullable' => true,
                 'default' => null,
+                'eval' => FormEvalRecordScore::class
             ],
         ],
         'description' => [

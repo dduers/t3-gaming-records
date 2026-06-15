@@ -7,7 +7,7 @@ use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 class Record extends AbstractEntity
 {
     protected ?string $time = null;
-    protected ?int $score = null;
+    protected ?string $score = null;
     protected string $description = '';
     protected int $gameId = 0;
     protected int $difficultyId = 0;
@@ -86,12 +86,12 @@ class Record extends AbstractEntity
         $this->time = $time;
     }
 
-    public function getScore(): ?int
+    public function getScore(): ?string
     {
         return $this->score;
     }
 
-    public function setScore(?int $score): void
+    public function setScore(?string $score): void
     {
         $this->score = $score;
     }

@@ -5,6 +5,7 @@ namespace Dduers\T3GamingRecords\Domain\Repository;
 use Dduers\T3GamingRecords\Domain\Model\Dto\RecordDemand;
 use Dduers\T3GamingRecords\Domain\Model\Record;
 use Dduers\T3GamingRecords\Utility\AdvancedDateTime;
+use Dduers\T3GamingRecords\Utility\AdvancedNumber;
 use Dduers\T3GamingRecords\Utility\DatabaseUtility;
 use TYPO3\CMS\Core\Database\Connection;
 use TYPO3\CMS\Core\Database\ConnectionPool;
@@ -157,8 +158,7 @@ class RecordRepository extends Repository
                 (new AdvancedDateTime())->uTimestampToDateTime($record['time'])
             );
             $object->setScore(
-                /*number_format(*/
-                $record['score']/*, 0, '.', '\'')*/
+                (new AdvancedNumber())->numberToFormatted($record['score'])
             );
             $object->setDate($record['date']);
             $object->setDescription($record['description'] ?? '');

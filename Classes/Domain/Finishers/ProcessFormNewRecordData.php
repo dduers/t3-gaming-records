@@ -20,15 +20,15 @@ class ProcessFormNewRecordData extends AbstractFinisher implements FinisherInter
 
         $formEvalRecordTime = GeneralUtility::makeInstance(AdvancedDateTime::class);
 
-        if ($formValues['text-time'] === "") {
-            $formState->setFormValue('text-time', null);
-        } else {
+        // if ($formValues['text-time'] === "") {
+        //     $formState->setFormValue('text-time', null);
+        // } else {
             $scoreTimeEvaluated = $formEvalRecordTime->dateTimeToUTimestamp($formValues['text-time']);
             $formState->setFormValue('text-time', $scoreTimeEvaluated);
-        }
+        // }
 
-        if ($formValues['text-score'] === "") {
-            $formState->setFormValue('text-score', null);
-        }
+        // if ($formValues['text-score'] === "") {
+        //     $formState->setFormValue('text-score', null);
+        // }
     }
 }
