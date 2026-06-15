@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Dduers\T3GamingRecords\Domain\Finishers;
 
 use Dduers\T3GamingRecords\Utility\AdvancedDateTime;
