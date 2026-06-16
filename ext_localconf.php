@@ -18,11 +18,8 @@ use Dduers\T3GamingRecords\Validation\FormEvalRecordScore;
 use Dduers\T3GamingRecords\Validation\FormEvalRecordTime;
 
 // backend formevals
-// $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['tce']['formevals']['Dduers\\T3GamingRecords\\Validation\\FormEvalRecordTime'] = '';
-// $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['tce']['formevals']['Dduers\\T3GamingRecords\\Validation\\FormEvalRecordScore'] = '';
-
-$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['tce']['formevals'][FormEvalRecordTime::class] = '';  
-$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['tce']['formevals'][FormEvalRecordScore::class] = '';   
+$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['tce']['formevals'][FormEvalRecordTime::class] = '';
+$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['tce']['formevals'][FormEvalRecordScore::class] = '';
 
 /**
  * Complete Page Plugins

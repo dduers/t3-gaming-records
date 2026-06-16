@@ -18,7 +18,7 @@ class FormEvalRecordTime
      * @param string $value
      * @param $is_in
      * @param &$set
-     * @return ?string
+     * @return ?int
      */
     public function evaluateFieldValue(string $value, $is_in, &$set): ?int
     {

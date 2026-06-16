@@ -4,10 +4,19 @@ declare(strict_types=1);
 
 namespace Dduers\T3GamingRecords\Utility;
 
-use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
+use NumberFormatter;
 
 class AdvancedNumber
 {
+    /**
+     * constructor
+     * 
+     * @property string $locale
+     */
+    public function __construct(
+        private string $locale = 'de_CH'
+    ) {}
+
     /**
      * format a number
      * 
@@ -20,7 +29,8 @@ class AdvancedNumber
             return null;
         }
 
-        $result = number_format($number, 0, '.', '\'');
+        $formatter = new NumberFormatter($this->locale, NumberFormatter::DECIMAL);
+        $result = $formatter->format($number);
         return $result;
     }
 
@@ -41,7 +51,8 @@ class AdvancedNumber
             return null;
         }
 
-        $result = (int)str_replace(['.', '\''], '', $formattedNumber);
+        $formatter = new NumberFormatter($this->locale, NumberFormatter::DECIMAL);
+        $result = (int)$formatter->parse($formattedNumber);
         return $result;
     }
 }
