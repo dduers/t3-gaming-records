@@ -8,15 +8,23 @@ use Dduers\T3GamingRecords\Domain\Repository\LevelRepository;
 use Dduers\T3GamingRecords\Domain\Repository\PlayerRepository;
 use Dduers\T3GamingRecords\Utility\AdvancedDateTime;
 use Dduers\T3GamingRecords\Utility\AdvancedNumber;
+use TYPO3\CMS\Core\Authentication\BackendUserAuthentication;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
 class LabelsUserFunc
 {
-    public function __construct()
-    {
-        //prove that the contructor is called, and guess what - it is
-        //DebuggerUtility::var_dump('LabelsUserFunc constructor called', 'LabelsUserFunc');
+    /**
+     * constructor
+     * 
+     * @param ?BackendUserAuthentication $backendUser
+     * @param ?string $languageKey
+     */
+    public function __construct(
+        private ?BackendUserAuthentication $backendUser = null,
+        private ?string $languageKey = null
+    ) {
+        $this->backendUser = $GLOBALS['BE_USER'] ?? null;
+        $this->languageKey = $this->backendUser?->getUserSettings()?->get('lang') ?: 'en';
     }
 
     public function gameLabel(mixed &$params): void
@@ -73,8 +81,8 @@ class LabelsUserFunc
         $playerRecord = $playerRepository->findByUidRaw($playerId);
         $playerUsername = $playerRecord ? $playerRecord[0]->getUsername() : 'Unknown Player';
 
-        $time = ($record['time'] ?? null) ? (new AdvancedDateTime)->uTimestampToDateTime((int)$record['time']) : null;
-        $score = ($record['score'] ?? null) ? (new AdvancedNumber)->numberToFormatted((int)$record['score']) : null;
+        $time = ($record['time'] ?? null) ? (new AdvancedDateTime())->uTimestampToDateTime((int)$record['time']) : null;
+        $score = ($record['score'] ?? null) ? (new AdvancedNumber($this->languageKey))->numberToFormatted((int)$record['score']) : null;
 
         $label = sprintf('%s - %s, %s / %s - %s, %s', $gameTitle, $levelTitle, $difficultyTitle, $playerUsername, $time ?? 'No Time', $score ?? 'No Score');
         $params['title'] = $label;

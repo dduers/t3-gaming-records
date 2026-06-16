@@ -14,7 +14,7 @@ class AdvancedNumber
      * @property string $locale
      */
     public function __construct(
-        private string $locale = 'de_CH'
+        private string $locale = 'en-US'
     ) {}
 
     /**

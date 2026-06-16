@@ -25,7 +25,7 @@ class BaseController extends ActionController
         switch ($code) {
             case 404:
                 $response = GeneralUtility::makeInstance(ErrorController::class)->pageNotFoundAction(
-                    $GLOBALS['TYPO3_REQUEST'],
+                    $this->request,
                     $message
                 );
                 // middleware aware

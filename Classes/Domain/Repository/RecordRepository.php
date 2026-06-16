@@ -20,7 +20,7 @@ class RecordRepository extends Repository
         private readonly LevelRepository $levelRepository,
         private readonly DifficultyRepository $difficultyRepository,
         private readonly PlayerRepository $playerRepository,
-        private readonly ConnectionPool $connectionPool,
+        private readonly ConnectionPool $connectionPool
     ) {
         return parent::__construct();
     }
@@ -40,10 +40,11 @@ class RecordRepository extends Repository
         $uid = $demand->getUid();
 
         $recordMode = $demand->getRecordMode();
+        $localeName = $demand->getLocaleName();
 
         // prevent context unaware output of all records
         if (!$gameId && !$playerId && !$uid) {
-            return $this->recordArrayToObject($records);
+            return $this->recordArrayToObject($records, $localeName);
         }
 
         /**
@@ -56,7 +57,7 @@ class RecordRepository extends Repository
                 $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($uid, Connection::PARAM_INT)),
             ]);
             $records = $queryBuilder->select(...$selectFields)->from($tableName)->where(...$whereConditions)->executeQuery()->fetchAllAssociative();
-            return $this->recordArrayToObject($records);
+            return $this->recordArrayToObject($records, $localeName);
         }
 
         /**
@@ -132,7 +133,7 @@ class RecordRepository extends Repository
             ->executeQuery()
             ->fetchAllAssociative();
 
-        return $this->recordArrayToObject($records);
+        return $this->recordArrayToObject($records, $localeName);
     }
 
     /**
@@ -140,9 +141,10 @@ class RecordRepository extends Repository
      * additional foreign object information
      * 
      * @param array $records
+     * @param string $localeName
      * @return Record[]
      */
-    private function recordArrayToObject(array $records): array
+    private function recordArrayToObject(array $records, string $localeName = 'en_US'): array
     {
         $result = [];
         foreach ($records as $record) {
@@ -158,7 +160,7 @@ class RecordRepository extends Repository
                 (new AdvancedDateTime())->uTimestampToDateTime($record['time'])
             );
             $object->setScore(
-                (new AdvancedNumber())->numberToFormatted($record['score'])
+                (new AdvancedNumber($localeName))->numberToFormatted($record['score'])
             );
             $object->setDate($record['date']);
             $object->setDescription($record['description'] ?? '');

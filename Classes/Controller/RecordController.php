@@ -6,8 +6,10 @@ use Dduers\T3GamingRecords\Domain\Model\Dto\RecordDemand;
 use Dduers\T3GamingRecords\Domain\Repository\RecordRepository;
 use Exception;
 use Psr\Http\Message\ResponseInterface;
+use TYPO3\CMS\Core\Localization\Locale;
 use TYPO3\CMS\Core\Resource\FileRepository;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
 class RecordController extends BaseController
 {

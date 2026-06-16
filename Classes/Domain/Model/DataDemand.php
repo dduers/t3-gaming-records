@@ -10,6 +10,7 @@ use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
  */
 class DataDemand extends AbstractEntity
 {
+    protected string $localeName = '';
     protected string $dataPids = '';
     // low level default for queries
     protected array $selectFields = ['*'];
@@ -27,6 +28,18 @@ class DataDemand extends AbstractEntity
         $this->uid = $uid;
         return $this;
     }
+
+    public function getLocaleName(): string
+    {
+        return $this->localeName;
+    }
+
+    public function setLocaleName(string $localeName)
+    {
+        $this->localeName = $localeName;
+        return $this;
+    }
+
     public function setSelectFields(string ...$selectFields)
     {
         $this->selectFields = $selectFields;

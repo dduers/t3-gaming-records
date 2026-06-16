@@ -6,6 +6,7 @@ use Dduers\T3GamingRecords\Domain\Model\DataDemand;
 use TYPO3\CMS\Core\Domain\Repository\PageRepository;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Mvc\RequestInterface;
+use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
 class RecordDemand extends DataDemand
 {
@@ -24,26 +25,26 @@ class RecordDemand extends DataDemand
         return $this;
     }
 
+    public function getGameId(): int
+    {
+        return $this->gameId;
+    }
+
     public function setGameId(int $gameId): RecordDemand
     {
         $this->gameId = $gameId;
         return $this;
     }
 
-    public function getGameId(): int
+    public function getPlayerId(): int
     {
-        return $this->gameId;
+        return $this->playerId;
     }
 
     public function setPlayerId(int $playerId): RecordDemand
     {
         $this->playerId = $playerId;
         return $this;
-    }
-
-    public function getPlayerId(): int
-    {
-        return $this->playerId;
     }
 
     /**
@@ -61,28 +62,33 @@ class RecordDemand extends DataDemand
         $gameId = (int)($request->getQueryParams()['tx_t3gamingrecords_game']['gameId'] ?? 0);
         $playerId = (int)($request->getQueryParams()['tx_t3gamingrecords_player']['playerId'] ?? 0);
         $uid = (int)($request->getQueryParams()['tx_t3gamingrecords_record']['recordId'] ?? 0);
+        $localeName = $request->getAttribute('language')->getLocale()->getName();
+
+        //DebuggerUtility::var_dump($localeName);
 
         // TODO::move to flex form
-        $demand->setRecordMode($settings['recordMode']);
-
-        $demand->setGameId($gameId);
-        $demand->setPlayerId($playerId);
-        $demand->setUid($uid);
-        $demand->setSelectFields('*');
-        $demand->setOrderBy($settings['orderBy'] ?? '');
-        $demand->setOrderDirection($settings['orderDirection'] ?? '');
-        $demand->setDataPids(implode(
-            ',',
-            $pageRepository->getPageIdsRecursive(
-                GeneralUtility::intExplode(',', (string)($settings['recordDataPids'] ?? '')),
-                (int)($settings['recursive'] ?? 0)
+        $demand
+            ->setLocaleName($localeName)
+            ->setRecordMode($settings['recordMode'])
+            ->setGameId($gameId)
+            ->setPlayerId($playerId)
+            ->setUid($uid)
+            ->setSelectFields('*')
+            ->setOrderBy($settings['orderBy'] ?? '')
+            ->setOrderDirection($settings['orderDirection'] ?? '')
+            ->setDataPids(
+                implode(
+                    ',',
+                    $pageRepository->getPageIdsRecursive(
+                        GeneralUtility::intExplode(',', (string)($settings['recordDataPids'] ?? '')),
+                        (int)($settings['recursive'] ?? 0)
+                    )
+                )
             )
-        ));
-
-        //TODO::why lover, why?
-        $demand->setOrderByAllowed($settings['orderByAllowed'] ?? '');
-        $demand->setAction($request->getControllerActionName());
-        $demand->setClass($request->getControllerName());
+            //TODO::why lover, why?
+            ->setOrderByAllowed($settings['orderByAllowed'] ?? '')
+            ->setAction($request->getControllerActionName())
+            ->setClass($request->getControllerName());
 
         return $demand;
     }
