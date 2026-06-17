@@ -95,6 +95,88 @@
             </segment>
         </unit>
 
+        <unit id="recordHeader.speedrun.title">
+            <segment state="final">
+                <source>Speedruns</source>
+            </segment>
+        </unit>
+        <unit id="recordHeader.speedrun.subTitle">
+            <segment state="final">
+                <source>These are the fastest times</source>
+            </segment>
+        </unit>
+
+        <unit id="recordHeader.highscore.title">
+            <segment state="final">
+                <source>Highscores</source>
+            </segment>
+        </unit>
+        <unit id="recordHeader.highscore.subTitle">
+            <segment state="final">
+                <source>These are the highest scores</source>
+            </segment>
+        </unit>
+
+        <unit id="recordHeader.default.title">
+            <segment state="final">
+                <source>Records</source>
+            </segment>
+        </unit>
+        <unit id="recordHeader.default.subTitle">
+            <segment state="final">
+                <source>These are the best records</source>
+            </segment>
+        </unit>
+
+
+        <unit id="recordTable.player">
+            <segment state="final">
+                <source>Player</source>
+            </segment>
+        </unit>
+
+        <unit id="recordTable.game">
+            <segment state="final">
+                <source>Game</source>
+            </segment>
+        </unit>
+
+        <unit id="recordTable.difficulty">
+            <segment state="final">
+                <source>Difficulty</source>
+            </segment>
+        </unit>
+
+        <unit id="recordTable.level">
+            <segment state="final">
+                <source>Level</source>
+            </segment>
+        </unit>
+
+        <unit id="recordTable.time">
+            <segment state="final">
+                <source>Time</source>
+            </segment>
+        </unit>
+
+        <unit id="recordTable.score">
+            <segment state="final">
+                <source>Score</source>
+            </segment>
+        </unit>
+
+        <unit id="recordTable.date">
+            <segment state="final">
+                <source>Date</source>
+            </segment>
+        </unit>
+
+        <unit id="recordTable.reference">
+            <segment state="final">
+                <source>Reference</source>
+            </segment>
+        </unit>
+
 
     </file>
 </xliff>

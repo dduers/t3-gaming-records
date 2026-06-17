@@ -2,16 +2,28 @@
     <f:then>
         <f:switch expression="{settings.recordMode}">
             <f:case value="speedrun">
-                <h2>Speedruns</h2>
-                <h4>These are the fastest times</h4>
+                <h2>
+                    <f:translate key="recordHeader.speedrun.title" />
+                </h2>
+                <h4>
+                    <f:translate key="recordHeader.speedrun.subTitle" />
+                </h4>
             </f:case>
             <f:case value="highscore">
-                <h2>Highscores</h2>
-                <h4>These are the highest scores</h4>
+                <h2>
+                    <f:translate key="recordHeader.highscore.title" />
+                </h2>
+                <h4>
+                    <f:translate key="recordHeader.highscore.subTitle" />
+                </h4>
             </f:case>
             <f:defaultCase>
-                <h2>Records</h2>
-                <h4>These are the best records</h4>
+                <h2>
+                    <f:translate key="recordHeader.default.title" />
+                </h2>
+                <h4>
+                    <f:translate key="recordHeader.default.subTitle" />
+                </h4>
             </f:defaultCase>
         </f:switch>
     </f:then>

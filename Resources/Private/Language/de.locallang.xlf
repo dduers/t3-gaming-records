@@ -112,6 +112,102 @@
             </segment>
         </unit>
 
+        <unit id="recordHeader.speedrun.title">
+            <segment state="final">
+                <source>Speedruns</source>
+                <target>Speedruns</target>
+            </segment>
+        </unit>
+        <unit id="recordHeader.speedrun.subTitle">
+            <segment state="final">
+                <source>These are the fastest times</source>
+                <target>Dies sind die schnellsten Zeiten</target>
+            </segment>
+        </unit>
+
+        <unit id="recordHeader.highscore.title">
+            <segment state="final">
+                <source>Highscores</source>
+                <target>Highscores</target>
+            </segment>
+        </unit>
+        <unit id="recordHeader.highscore.subTitle">
+            <segment state="final">
+                <source>These are the highest scores</source>
+                <target>Das sind die höchsten Punktestände</target>
+            </segment>
+        </unit>
+
+        <unit id="recordHeader.default.title">
+            <segment state="final">
+                <source>Records</source>
+                <target>Rekorde</target>
+            </segment>
+        </unit>
+        <unit id="recordHeader.default.subTitle">
+            <segment state="final">
+                <source>These are the best records</source>
+                <target>Das sind die besten Rekorde</target>
+            </segment>
+        </unit>
+
+
+        <unit id="recordTable.player">
+            <segment state="final">
+                <source>Player</source>
+                <target>Spieler</target>
+            </segment>
+        </unit>
+
+        <unit id="recordTable.game">
+            <segment state="final">
+                <source>Game</source>
+                <target>Spiel</target>
+            </segment>
+        </unit>
+
+        <unit id="recordTable.difficulty">
+            <segment state="final">
+                <source>Difficulty</source>
+                <target>Schwierigkeit</target>
+            </segment>
+        </unit>
+
+        <unit id="recordTable.level">
+            <segment state="final">
+                <source>Level</source>
+                <target>Umgebung</target>
+            </segment>
+        </unit>
+
+        <unit id="recordTable.time">
+            <segment state="final">
+                <source>Time</source>
+                <target>Zeit</target>
+            </segment>
+        </unit>
+
+        <unit id="recordTable.score">
+            <segment state="final">
+                <source>Score</source>
+                <target>Punkte</target>
+            </segment>
+        </unit>
+
+        <unit id="recordTable.date">
+            <segment state="final">
+                <source>Date</source>
+                <target>Datum</target>
+            </segment>
+        </unit>
+
+        <unit id="recordTable.reference">
+            <segment state="final">
+                <source>Reference</source>
+                <target>Details</target>
+            </segment>
+        </unit>
+
 
     </file>
 </xliff>
