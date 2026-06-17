@@ -16,10 +16,10 @@ use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 class RecordRepository extends Repository
 {
     public function __construct(
-        private readonly GameRepository $gameRepository,
         private readonly LevelRepository $levelRepository,
         private readonly DifficultyRepository $difficultyRepository,
         private readonly PlayerRepository $playerRepository,
+        private readonly GameRepository $gameRepository,
         private readonly ConnectionPool $connectionPool
     ) {
         return parent::__construct();
@@ -96,7 +96,7 @@ class RecordRepository extends Repository
                 : $queryBuilder->expr()->eq('t.score', $queryBuilder->quoteIdentifier('s.best_score'))
         ]);
         $whereConditions = array_filter([
-            $queryBuilder->expr()->in('t.pid', $queryBuilder->createNamedParameter($demand->getDataPids(), Connection::PARAM_STR)),
+            $queryBuilder->expr()->in('t.pid', $queryBuilder->createNamedParameter(implode(',', $demand->getDataPids()), Connection::PARAM_STR)),
             $gameId ? $queryBuilder->expr()->eq('t.game_id', $queryBuilder->createNamedParameter($gameId, Connection::PARAM_INT)) : null,
             $playerId ? $queryBuilder->expr()->eq('t.player_id', $queryBuilder->createNamedParameter($playerId, Connection::PARAM_INT)) : null,
             $uid ? $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($uid, Connection::PARAM_INT)) : null,
@@ -148,6 +148,10 @@ class RecordRepository extends Repository
     {
         $result = [];
         foreach ($records as $record) {
+
+        
+
+
             $object = GeneralUtility::makeInstance(Record::class);
 
             // default properties
@@ -169,6 +173,8 @@ class RecordRepository extends Repository
             $game = $this->gameRepository->findByUid($record['game_id']);
             $object->setGameTitle($game ? $game->getTitle() : '');
             $level = $this->levelRepository->findByUid($record['level_id']);
+
+
             $object->setLevelTitle($level ? $level->getTitle() : '');
             $difficulty = $this->difficultyRepository->findByUid($record['difficulty_id']);
             $object->setDifficultyTitle($difficulty ? $difficulty->getTitle() : '');
@@ -178,6 +184,7 @@ class RecordRepository extends Repository
             // add result
             $result[] = $object;
         }
+
         return $result;
     }
 }

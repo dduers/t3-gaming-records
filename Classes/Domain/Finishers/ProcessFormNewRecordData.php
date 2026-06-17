@@ -10,6 +10,9 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Form\Domain\Finishers\AbstractFinisher;
 use TYPO3\CMS\Form\Domain\Finishers\FinisherInterface;
 
+/**
+ * before saving the frontend form to the database
+ */
 class ProcessFormNewRecordData extends AbstractFinisher implements FinisherInterface
 {
     #[Override]

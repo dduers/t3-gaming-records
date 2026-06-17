@@ -25,13 +25,12 @@ class GameDemand extends DataDemand
         $demand->setUid($gameId);
         $demand->setOrderBy($settings['orderBy'] ?? $demand->getOrderBy());
         $demand->setOrderDirection($settings['orderDirection'] ?? $demand->getOrderDirection());
-        $demand->setDataPids(implode(
-            ',',
+        $demand->setDataPids(
             $pageRepository->getPageIdsRecursive(
                 GeneralUtility::intExplode(',', (string)($settings['gameDataPids'] ?? '')),
                 (int)($settings['recursive'] ?? 0)
             )
-        ));
+        );
 
         // TODO::why lover, why?
         $demand->setOrderByAllowed((string)($this->settings['orderByAllowed'] ?? ''));

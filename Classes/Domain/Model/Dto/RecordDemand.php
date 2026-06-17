@@ -65,8 +65,6 @@ class RecordDemand extends DataDemand
         $localeName = $request->getAttribute('language')->getLocale()->getName();
 
         //DebuggerUtility::var_dump($localeName);
-
-        // TODO::move to flex form
         $demand
             ->setLocaleName($localeName)
             ->setRecordMode($settings['recordMode'])
@@ -77,12 +75,9 @@ class RecordDemand extends DataDemand
             ->setOrderBy($settings['orderBy'] ?? '')
             ->setOrderDirection($settings['orderDirection'] ?? '')
             ->setDataPids(
-                implode(
-                    ',',
-                    $pageRepository->getPageIdsRecursive(
-                        GeneralUtility::intExplode(',', (string)($settings['recordDataPids'] ?? '')),
-                        (int)($settings['recursive'] ?? 0)
-                    )
+                $pageRepository->getPageIdsRecursive(
+                    GeneralUtility::intExplode(',', (string)($settings['recordDataPids'] ?? '')),
+                    (int)($settings['recursive'] ?? 0)
                 )
             )
             //TODO::why lover, why?

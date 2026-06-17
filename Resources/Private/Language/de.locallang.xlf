@@ -1,60 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xliff version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0" srcLang="en">
+<xliff version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0" srcLang="en" trgLang="de">
     <file id="f1">
         <unit id="gameHeader.title">
             <segment state="final">
                 <source>Games</source>
+                <target>Spiele</target>
             </segment>
         </unit>
         <unit id="gameHeader.subTitle">
             <segment state="final">
                 <source>Choose from the list to view the game details</source>
+                <target>Wähle ein Spiel aus der Liste, um die Details anzuzeigen</target>
             </segment>
         </unit>
 
         <unit id="gameTable.title">
             <segment state="final">
                 <source>Title</source>
+                <target>Titel</target>
             </segment>
         </unit>
 
         <unit id="gameTable.publisher">
             <segment state="final">
                 <source>Publisher</source>
+                <target>Herausgeber</target>
             </segment>
         </unit>
 
         <unit id="gameTable.platform">
             <segment state="final">
                 <source>Platform</source>
+                <target>Plattform</target>
             </segment>
         </unit>
         <unit id="gameTable.releaseDate">
             <segment state="final">
                 <source>Release Date</source>
+                <target>Erscheinung</target>
             </segment>
         </unit>
 
         <unit id="gameButtons.back">
             <segment state="final">
                 <source>Back</source>
+                <target>Zurück</target>
             </segment>
         </unit>
 
         <unit id="playerButtons.back">
             <segment state="final">
                 <source>Back</source>
+                <target>Zurück</target>
             </segment>
         </unit>
 
         <unit id="playerHeader.title">
             <segment state="final">
                 <source>Players</source>
+                <target>Spieler</target>
             </segment>
         </unit>
         <unit id="playerHeader.subTitle">
             <segment state="final">
                 <source>Choose from the list to view the player details</source>
+                <target>Wähle einen Spieler aus der Liste, um die Details anzuzeigen</target>
             </segment>
         </unit>
 
@@ -62,36 +72,43 @@
         <unit id="playerTable.player">
             <segment state="final">
                 <source>Player</source>
+                <target>Spieler</target>
             </segment>
         </unit>
         <unit id="playerTable.displayName">
             <segment state="final">
                 <source>Display Name</source>
+                <target>Anzeigename</target>
             </segment>
         </unit>
         <unit id="playerTable.forename">
             <segment state="final">
                 <source>Forename</source>
+                <target>Vorname</target>
             </segment>
         </unit>
         <unit id="playerTable.lastname">
             <segment state="final">
                 <source>Lastname</source>
+                <target>Nachname</target>
             </segment>
         </unit>
         <unit id="playerTable.email">
             <segment state="final">
                 <source>Email</source>
+                <target>Email</target>
             </segment>
         </unit>
         <unit id="playerTable.homepage">
             <segment state="final">
                 <source>Homepage</source>
+                <target>Homepage</target>
             </segment>
         </unit>
         <unit id="playerTable.date">
             <segment state="final">
                 <source>Joined</source>
+                <target>Beigetreten</target>
             </segment>
         </unit>
 

@@ -7,14 +7,22 @@ use TYPO3\CMS\Core\Resource\FileType;
 
 return [
     'ctrl' => [
+
+        // title
         'title' => 'Record',
+
+        // label
         'label' => 'game_id',
-        'label_alt' => 'time, score, difficulty_id, player_id, level_id',
-        //'label_alt_force' => true,
+        // make fields available for user func
+        'label_alt' => 'time,score,difficulty_id,player_id,level_id',
         'label_userFunc' => LabelsUserFunc::class . '->recordLabel',
+
+        // settings
+        'hideAtCopy' => true,
+
+        // standard fields
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
-        //'type' => 'record_type',
         'default_sortby' => 'ORDER BY crdate',
         'delete' => 'deleted',
         'enablecolumns' => [
@@ -22,12 +30,15 @@ return [
             'starttime' => 'starttime',
             'endtime' => 'endtime',
         ],
+        
         'security' => [
             // Allow the games table anywhere in the page tree
             'ignorePageTypeRestriction' => false,
         ],
+
+        // assets
         'typeicon_classes' => [
-            'default' => 'game-record', //'tx_examples-dummy',
+            'default' => 'game-record',
         ],
     ],
     'types' => [

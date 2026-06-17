@@ -4,11 +4,10 @@ namespace Dduers\T3GamingRecords\Domain\Repository;
 
 use Dduers\T3GamingRecords\Domain\Model\Dto\GameDemand;
 use Dduers\T3GamingRecords\Domain\Model\Game;
-use Dduers\T3GamingRecords\Utility\DatabaseUtility;
-use TYPO3\CMS\Core\Database\Connection;
-use TYPO3\CMS\Core\Database\ConnectionPool;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Core\Context\LanguageAspect;
+use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
 use TYPO3\CMS\Extbase\Persistence\Repository;
+use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
 class GameRepository extends Repository
 {
@@ -17,11 +16,24 @@ class GameRepository extends Repository
      */
     public function __construct(
         private readonly PublisherRepository $publisherRepository,
-        private readonly PlatformRepository $platformRepository,
-        private readonly ConnectionPool $connectionPool,
+        private readonly PlatformRepository $platformRepository
     ) {
         return parent::__construct();
     }
+
+    /**
+     * mainly set default query settings
+     * 
+     * @return void
+     */
+    public function initializeObject(): void
+    {
+        $querySettings = $this->createQuery()->getQuerySettings();
+        $querySettings->setRespectStoragePage(true);
+        $querySettings->setRespectSysLanguage(true);
+        $this->setDefaultQuerySettings($querySettings);
+    }
+
 
     /**
      * find all time highscores by demand
@@ -32,56 +44,51 @@ class GameRepository extends Repository
     public function findByDemand(GameDemand $demand): array
     {
         $records = [];
-        $tableName = GeneralUtility::makeInstance(DatabaseUtility::class)->getTableNameFromClass(Game::class);
-        $queryBuilder = $this->connectionPool->getQueryBuilderForTable($tableName);
-        $gameId = $demand->getUid();
-        $selectFields = $demand->getSelectFields();
 
-        // for GameDescription and GameHeaderControllers, dont query with the pids, they are using the game uid only
-        $dataPids = $demand->getDataPids();
+        $storagePids = $demand->getDataPids();
+        $uid = $demand->getUid();
 
-        $whereConditions = array_filter([
-            $dataPids ? $queryBuilder->expr()->in('pid', $queryBuilder->createNamedParameter($dataPids, Connection::PARAM_STR)) : null,
-            $gameId ? $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($gameId, Connection::PARAM_INT)) : null
-        ]);
+        $querySettings = $this->createQuery()->getQuerySettings();
 
-        $records = $queryBuilder
-            ->select(...$selectFields)
-            ->from($tableName)
-            ->where(...$whereConditions)
-            ->addOrderBy($demand->getOrderBy(), $demand->getOrderDirection())
-            ->executeQuery()
-            ->fetchAllAssociative();
+        if ($uid) {
+            $querySettings->setRespectSysLanguage(false);
+        }
+        
+        if ($storagePids) {
+            $querySettings->setStoragePageIds($storagePids);
+        }
+
+        $this->setDefaultQuerySettings($querySettings);
+
+        $query = $this->createQuery();
+        $query->setOrderings([$demand->getOrderBy() => $demand->getOrderDirection()]);
+
+        if ($uid) {
+            $query->matching($query->equals('uid', $uid));
+        }
+
+        $records = $query->execute();
 
         return $this->recordArrayToObject($records);
     }
 
     /**
-     * create array of record objects and add
-     * additional foreign object information
+     * add additional information to domain model
      * 
-     * @param array $records
+     * @param QueryResultInterface $records
      * @return Game[]
      */
-    private function recordArrayToObject(array $records): array
+    private function recordArrayToObject(QueryResultInterface $records): array
     {
         $result = [];
         foreach ($records as $record) {
-            $object = GeneralUtility::makeInstance(Game::class);
-            // default properties
-            $object->setUid($record['uid']);
-            $object->setTitle($record['title']);
-            $object->setDescription($record['description']);
-            $object->setPublisherId($record['publisher_id']);
-            $object->setPlatformId($record['platform_id']);
-            $object->setDateRelease($record['date_release']);
-            $object->setFalMedia($record['fal_media']);
-            // custom properties
-            $publisher = $this->publisherRepository->findByUid($record['publisher_id']);
-            $object->setPublisherTitle($publisher ? $publisher->getTitle() : '');
-            $platform = $this->platformRepository->findByUid($record['platform_id']);
-            $object->setPlatformTitle($platform ? $platform->getTitle() : '');
-            $result[] = $object;
+            $publisher = $this->publisherRepository->findByUid($record->getPublisherId());
+            $record->setPublisherTitle($publisher ? $publisher->getTitle() : '');
+
+            $platform = $this->platformRepository->findByUid($record->getPlatformId());
+            $record->setPlatformTitle($platform ? $platform->getTitle() : '');
+
+            $result[] = $record;
         }
         return $result;
     }

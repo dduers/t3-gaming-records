@@ -3,6 +3,7 @@
 namespace Dduers\T3GamingRecords\Domain\Model;
 
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
+use TYPO3\CMS\Extbase\Persistence\QueryInterface;
 
 /**
  * Demanded repository interface
@@ -11,11 +12,11 @@ use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 class DataDemand extends AbstractEntity
 {
     protected string $localeName = '';
-    protected string $dataPids = '';
+    protected array $dataPids = [];
     // low level default for queries
     protected array $selectFields = ['*'];
     protected string $orderBy = 'uid';
-    protected string $orderDirection = 'asc';
+    protected string $orderDirection = 'ASC';
 
     // why lover why?
     protected string $orderByAllowed = '';
@@ -51,13 +52,13 @@ class DataDemand extends AbstractEntity
         return $this->selectFields;
     }
 
-    public function setDataPids(string $dataPids)
+    public function setDataPids(array $dataPids)
     {
         $this->dataPids = $dataPids;
         return $this;
     }
 
-    public function getDataPids(): string
+    public function getDataPids(): array
     {
         return $this->dataPids;
     }
@@ -75,7 +76,11 @@ class DataDemand extends AbstractEntity
 
     public function setOrderDirection(string $orderDirection)
     {
-        $this->orderDirection = $orderDirection;
+        $this->orderDirection = match (strtoupper($orderDirection)) {
+            'ASC' => QueryInterface::ORDER_ASCENDING,
+            'DESC' => QueryInterface::ORDER_DESCENDING,
+            default => ''
+        };
         return $this;
     }
 

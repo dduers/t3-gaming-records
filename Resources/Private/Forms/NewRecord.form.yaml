@@ -141,6 +141,8 @@ renderables:
         label: Score
         properties:
           elementDescription: "Enter the score you achieved"
+        validators:
+          - identifier: Number
       - type: Text
         identifier: text-time
         label: Time

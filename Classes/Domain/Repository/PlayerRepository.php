@@ -38,7 +38,7 @@ class PlayerRepository extends Repository
         $queryBuilder = $this->connectionPool->getQueryBuilderForTable($tableName);
         $selectFields = $demand->getSelectFields();
         $whereConditions = array_filter([
-            $dataPids ? $queryBuilder->expr()->in('pid', $queryBuilder->createNamedParameter($dataPids, Connection::PARAM_STR)) : null,
+            $dataPids ? $queryBuilder->expr()->in('pid', $queryBuilder->createNamedParameter(implode(',', $dataPids), Connection::PARAM_STR)) : null,
             $uid ? $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($uid, Connection::PARAM_INT)) : null,
         ]);
         $records = $queryBuilder

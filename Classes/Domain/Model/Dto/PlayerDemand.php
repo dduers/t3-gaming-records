@@ -41,16 +41,12 @@ class PlayerDemand extends DataDemand
         $demand->setOrderByAllowed((string)($this->settings['orderByAllowed'] ?? ''));
         $demand->setSelectFields('username', 'name', 'crdate', 'uid', 'first_name', 'last_name', 'email', 'www');
         $demand->setUid($playerId);
-        $demand->setDataPids(implode(
-            ',',
+        $demand->setDataPids(
             $pageRepository->getPageIdsRecursive(
-                GeneralUtility::intExplode(
-                    ',',
-                    (string)($settings['playerDataPids'] ?? '')
-                ),
+                GeneralUtility::intExplode(',', (string)($settings['playerDataPids'] ?? '')),
                 (int)($settings['recursive'] ?? 0)
             )
-        ));
+        );
 
         return $demand;
     }
