@@ -144,8 +144,8 @@ renderables:
         validators:
           - identifier: Number
       - type: Text
-        identifier: text-time
-        label: Time
+        identifier: textTime
+        # label: Time
         properties:
           elementDescription: "Enter the time you achieved"
       - type: Textarea
