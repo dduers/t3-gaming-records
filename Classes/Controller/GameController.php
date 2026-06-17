@@ -22,7 +22,6 @@ class GameController extends BaseController
     {
         $demandDto = GeneralUtility::makeInstance(GameDemand::class);
         $demand = $demandDto->createDemand($this->settings, $this->request);
-
         $records = $this->gameRepository->findByDemand($demand);
 
         $this->view->assign('data', [
@@ -44,7 +43,6 @@ class GameController extends BaseController
     {
         $demandDto = GeneralUtility::makeInstance(GameDemand::class);
         $demand = $demandDto->createDemand($this->settings, $this->request);
-
         $records = $this->gameRepository->findByDemand($demand);
 
         $gameId = $this->request->getQueryParams()['tx_t3gamingrecords_game']['gameId'] ?? 0;

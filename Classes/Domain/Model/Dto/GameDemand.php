@@ -22,20 +22,34 @@ class GameDemand extends DataDemand
         $demand = GeneralUtility::makeInstance(GameDemand::class);
         $pageRepository = GeneralUtility::makeInstance(PageRepository::class);
 
-        $demand->setUid($gameId);
-        $demand->setOrderBy($settings['orderBy'] ?? $demand->getOrderBy());
-        $demand->setOrderDirection($settings['orderDirection'] ?? $demand->getOrderDirection());
-        $demand->setDataPids(
-            $pageRepository->getPageIdsRecursive(
-                GeneralUtility::intExplode(',', (string)($settings['gameDataPids'] ?? '')),
-                (int)($settings['recursive'] ?? 0)
-            )
-        );
+        if ($gameId) {
+            $demand->setUid((int)$gameId);
+        }
+
+        if ($settings['orderBy'] ?? null) {
+            $demand->setOrderBy((string)$settings['orderBy']);
+        }
+
+        if ($settings['orderDirection'] ?? null) {
+            $demand->setOrderDirection((string)$settings['orderDirection']);
+        }
+
+        if ($settings['gameDataPids'] ?? null) {
+            $demand->setDataPids(
+                $pageRepository->getPageIdsRecursive(
+                    GeneralUtility::intExplode(',', (string)($settings['gameDataPids'] ?? '')),
+                    (int)($settings['recursive'] ?? 0)
+                )
+            );
+        }
 
         // TODO::why lover, why?
-        $demand->setOrderByAllowed((string)($this->settings['orderByAllowed'] ?? ''));
-        $demand->setAction($request->getControllerActionName());
-        $demand->setClass($request->getControllerName());
+        // if ($settings['orderByAllowed'] ?? null) {
+        //     $demand->setOrderByAllowed((string)$settings['orderByAllowed']);
+        // }
+        // TODO::why lover, why?
+        // $demand->setAction($request->getControllerActionName());
+        // $demand->setClass($request->getControllerName());
 
         return $demand;
     }
