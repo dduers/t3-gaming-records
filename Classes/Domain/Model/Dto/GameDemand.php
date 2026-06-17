@@ -43,14 +43,6 @@ class GameDemand extends DataDemand
             );
         }
 
-        // TODO::why lover, why?
-        // if ($settings['orderByAllowed'] ?? null) {
-        //     $demand->setOrderByAllowed((string)$settings['orderByAllowed']);
-        // }
-        // TODO::why lover, why?
-        // $demand->setAction($request->getControllerActionName());
-        // $demand->setClass($request->getControllerName());
-
         return $demand;
     }
 }

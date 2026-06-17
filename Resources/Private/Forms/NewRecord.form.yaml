@@ -82,7 +82,7 @@ renderables:
         label: Game
         properties:
           table: "game"
-          elementDescription: "Choose the game where you achieved the highscore"
+          # elementDescription: "Choose the game where you achieved the highscore"
           fluidAdditionalAttributes:
             required: required
         validators:
@@ -108,7 +108,7 @@ renderables:
         identifier: date-date
         label: Date
         properties:
-          elementDescription: "Enter the date when you achieved the highscore"
+          # elementDescription: "Enter the date when you achieved the highscore"
           fluidAdditionalAttributes:
             required: required
         validators:
@@ -119,7 +119,7 @@ renderables:
         label: Level
         properties:
           table: "level"
-          elementDescription: "Choose the level where you achieved the highscore"
+          # elementDescription: "Choose the level where you achieved the highscore"
           fluidAdditionalAttributes:
             required: required
         validators:
@@ -130,7 +130,7 @@ renderables:
         label: Difficulty
         properties:
           table: "difficulty"
-          elementDescription: "Choose the difficulty level where you achieved the highscore"
+          # elementDescription: "Choose the difficulty level where you achieved the highscore"
           fluidAdditionalAttributes:
             required: required
         validators:
@@ -140,33 +140,35 @@ renderables:
         identifier: text-score
         label: Score
         properties:
-          elementDescription: "Enter the score you achieved"
+          # elementDescription: "Enter the score you achieved"
         validators:
           - identifier: Number
       - type: Text
-        identifier: textTime
-        # label: Time
+        identifier: text-time
+        label: "Time (Hours : Minutes : Seconds . Milliseconds)"
         properties:
-          elementDescription: "Enter the time you achieved"
+          # elementDescription: ""
       - type: Textarea
         identifier: textarea-description
         label: Description
         properties:
-          elementDescription: "Enter an optional description for your record"
+          # elementDescription: "Enter an optional description for your record"
         defaultValue: ""
       - type: ImageUpload
         identifier: file-upload-image
-        label: Image
+        # label: Image
         properties:
-          saveToFileMount: '1:/comeun1ty.net/images/gaming/records/'
+          allowRemoval: true
+          multiple: false
+          saveToFileMount: "1:/comeun1ty.net/images/gaming/records/"
           allowedMimeTypes:
             - image/jpeg
             - image/png
-          imageLinkMaxWidth: 500
-          imageMaxWidth: 500
-          imageMaxHeight: 500
+          imageLinkMaxWidth: 300
+          imageMaxWidth: 300
+          imageMaxHeight: 300
           containerClassAttribute: input
           elementClassAttribute: lightbox
           elementErrorClassAttribute: error
-          elementDescription: "Upload an optional image for your record"
+          elementDescription: "Optional screenshot (JPG or PNG)"
         defaultValue: ""

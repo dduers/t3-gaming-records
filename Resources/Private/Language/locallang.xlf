@@ -177,6 +177,17 @@
             </segment>
         </unit>
 
+        <unit id="recordNewHeader.title">
+            <segment state="final">
+                <source>Highscores &amp; Speedruns</source>
+            </segment>
+        </unit>
+        <unit id="recordNewHeader.subTitle">
+            <segment state="final">
+                <source>Post details about your achieved highscore or speedrun</source>
+            </segment>
+        </unit>
+
 
     </file>
 </xliff>

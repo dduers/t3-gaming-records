@@ -208,6 +208,19 @@
             </segment>
         </unit>
 
+        <unit id="recordNewHeader.title">
+            <segment state="final">
+                <source>Highscores &amp; Speedruns</source>
+                <target>Highscores &amp; Speedruns</target>
+            </segment>
+        </unit>
+        <unit id="recordNewHeader.subTitle">
+            <segment state="final">
+                <source>Post details about your achieved highscore or speedrun</source>
+                <target>Gib deine Highscore oder deinen Speedrun ein</target>
+            </segment>
+        </unit>
+
 
     </file>
 </xliff>
