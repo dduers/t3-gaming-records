@@ -6,7 +6,16 @@
         "GPL-2.0-or-later"
     ],
     "require": {
-        "typo3/cms-core": "^14.3"
+        "typo3/cms-core": "^14.3",
+        "typo3/cms-backend": "^14.3",
+        "typo3/cms-form": "^14.3",
+        "typo3/cms-extbase": "^14.3"
+    },
+    "suggest": {
+        "typo3/cms-filelist": "View user uploads within the TYPO3 CMS backend.",
+        "typo3/cms-felogin": "Enables TYPO3 CMS frontend user logins to build a community website.",
+        "evoweb/sf-register": "Enables TYPO3 CMS frontend user registrations.",
+        "georgringer/news": "Enables the creation of news articles to display on the website."
     },
     "autoload": {
         "psr-4": {
