@@ -160,7 +160,7 @@ renderables:
         properties:
           allowRemoval: true
           multiple: false
-          saveToFileMount: "1:/comeun1ty.net/images/gaming/records/"
+          saveToFileMount: "1:/comeun1ty.net/images/GamingRecords/"
           allowedMimeTypes:
             - image/jpeg
             - image/png
