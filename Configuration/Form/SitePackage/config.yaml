@@ -1,9 +1,9 @@
 TYPO3:
   CMS:
     Form:
-      persistenceManager:
-        allowedExtensionPaths:
-          10: "EXT:t3_gaming_records/Resources/Private/Forms/"
+      # persistenceManager:
+      #   allowedExtensionPaths:
+      #     10: "EXT:t3_gaming_records/Resources/Private/Forms/"
       prototypes:
         standard:
           finishersDefinition:

@@ -7,4 +7,4 @@ priority: 200
 # Form configuration goes directly below the metadata:
 persistenceManager:
   allowedExtensionPaths:
-    10: "EXT:t3_gaming_records/Resources/Private/Forms/"
+    1234: "EXT:t3_gaming_records/Resources/Private/Forms/"
