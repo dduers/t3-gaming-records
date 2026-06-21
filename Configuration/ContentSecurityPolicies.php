@@ -66,17 +66,10 @@ return Map::fromEntries(
         // You can also additionally provide frontend declarations
         Scope::frontend(),
         new MutationCollection(
-
             new Mutation(
                 MutationMode::Extend,
                 Directive::ScriptSrcElem,
                 new UriValue('https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js'),
-            ),
-
-            new Mutation(
-                MutationMode::Extend,
-                Directive::ScriptSrcElem,
-                new UriValue('https://cdn.datatables.net/v/dt/jszip-3.10.1/dt-2.3.8/b-3.2.6/b-colvis-3.2.6/b-html5-3.2.6/b-print-3.2.6/r-3.0.8/datatables.min.js'),
             ),
 
             new Mutation(
@@ -94,7 +87,13 @@ return Map::fromEntries(
             new Mutation(
                 MutationMode::Extend,
                 Directive::StyleSrcElem,
-                new UriValue('https://cdn.datatables.net/v/dt/jszip-3.10.1/dt-2.3.8/b-3.2.6/b-colvis-3.2.6/b-html5-3.2.6/b-print-3.2.6/r-3.0.8/datatables.min.css'),
+                new UriValue('https://cdn.datatables.net'),
+            ),
+
+            new Mutation(
+                MutationMode::Extend,
+                Directive::ScriptSrcElem,
+                new UriValue('https://cdn.datatables.net'),
             ),
         ),
     ],
