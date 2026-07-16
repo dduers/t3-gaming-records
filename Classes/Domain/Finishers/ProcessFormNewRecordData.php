@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Dduers\T3GamingRecords\Domain\Finishers;
 
 use Dduers\T3GamingRecords\Utility\AdvancedDateTime;
+use Dduers\T3GamingRecords\Utility\AdvancedNumber;
 use Override;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
@@ -22,10 +23,14 @@ class ProcessFormNewRecordData extends AbstractFinisher implements FinisherInter
         $formValues = $this->finisherContext->getFormValues();
         $formState = $this->finisherContext->getFormRuntime()->getFormState();
 
-        DebuggerUtility::var_dump($formValues, 'Form Values');
+        // DebuggerUtility::var_dump($formValues, 'Form Values');
 
         $formEvalRecordTime = GeneralUtility::makeInstance(AdvancedDateTime::class);
         $scoreTimeEvaluated = $formEvalRecordTime->dateTimeToUTimestamp($formValues['text-time']);
         $formState->setFormValue('text-time', $scoreTimeEvaluated);
+
+        //$formEvalRecordScore = GeneralUtility::makeInstance(AdvancedNumber::class);
+        //$scoreEvaluated = $formEvalRecordScore->formattedToNumber($formValues['text-score']);
+        $formState->setFormValue('text-score', $formValues['text-score'] ?: null);
     }
 }
