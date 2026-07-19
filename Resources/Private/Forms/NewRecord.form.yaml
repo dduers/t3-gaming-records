@@ -39,6 +39,8 @@ finishers:
             mapOnDatabaseColumn: "fal_media"
             skipIfValueIsEmpty: true
   - identifier: Confirmation
+    options:
+      message: 'The highscore or speedrun record has been submitted successfully.'
 variants:
   - identifier: conditional-finishers
     condition: 'traverse(formValues, "file-upload-image") != ""'
