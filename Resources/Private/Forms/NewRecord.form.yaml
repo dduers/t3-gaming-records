@@ -71,6 +71,8 @@ variants:
               uid_foreign:
                 value: "{SaveToDatabase.insertedUids.0}"
       - identifier: Confirmation
+        options:
+          message: 'The highscore or speedrun record has been submitted successfully and an image has been saved.'
 renderables:
   - renderingOptions:
       previousButtonLabel: "Previous step"
