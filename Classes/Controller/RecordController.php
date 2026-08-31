@@ -89,6 +89,8 @@ class RecordController extends BaseController
         $recordId = (int)($this->request->getQueryParams()['tx_t3gamingrecords_record']['recordId'] ?? 0);
         $record = $this->recordRepository->findByUid($recordId);
 
+        DebuggerUtility::var_dump($record);
+
         if ($record) {
             $this->recordRepository->remove($record);
         }
