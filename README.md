@@ -18,6 +18,7 @@ It can be installed with composer:
 - Added support for localization number formats in frontend templates
 - Added support for game record localization (mostly useful for description)
 - Added german language support
+- Added delete gaming record button
 
 ## Links
 

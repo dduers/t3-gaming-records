@@ -50,7 +50,7 @@ class RecordController extends BaseController
      */
     public function detailAction(): ResponseInterface
     {
-        $recordId = (int)($this->request->getQueryParams()['tx_t3gamingrecords_record']['recordId'] ?? 0);
+        $recordId = (int)($this->request->getArgument('recordId') ?? 0);
 
         $demandDto = GeneralUtility::makeInstance(RecordDemand::class);
         $demand = $demandDto->createDemand($this->settings, $this->request);
