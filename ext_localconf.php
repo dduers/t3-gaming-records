@@ -53,7 +53,7 @@ ExtensionUtility::configurePlugin(
     't3_gaming_records',
     'Record',
     [
-        RecordController::class => 'list, detail',
+        RecordController::class => 'list, detail, delete',
     ],
     // non-cacheable actions
     [],
