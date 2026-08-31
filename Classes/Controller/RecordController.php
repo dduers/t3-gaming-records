@@ -78,4 +78,21 @@ class RecordController extends BaseController
 
         return $this->htmlResponse();
     }
+
+    /**
+     * action delete
+     * 
+     * @return ResponseInterface
+     */
+    public function deleteAction(): ResponseInterface
+    {
+        $recordId = (int)($this->request->getQueryParams()['tx_t3gamingrecords_record']['recordId'] ?? 0);
+        $record = $this->recordRepository->findByUid($recordId);
+
+        if ($record) {
+            $this->recordRepository->remove($record);
+        }
+
+        return $this->htmlResponse();
+    }
 }

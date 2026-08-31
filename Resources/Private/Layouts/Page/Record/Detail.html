@@ -12,10 +12,18 @@
         </div>
     </div>
 
+    <div class="row mb-3">
+        <div class="col-md-12">
+            Delete Record: <f:link.action controller="Record" pluginName="record" action="delete" arguments="{recordId: data.record.uid}">Delete</f:link.action>
+            <f:link.action controller="Record" pluginName="record" action="delete">Delete</f:link.action>
+        </div>
+    </div>
+
     <div class="row mb-5">
         <div class="col-md-12">
             <f:render partial="Record/Picture" arguments="{data: data.recordpicture}" />
         </div>
     </div>
+
 
 </div>

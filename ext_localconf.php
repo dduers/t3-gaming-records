@@ -32,7 +32,9 @@ ExtensionUtility::configurePlugin(
         GameController::class => 'list, detail',
     ],
     // non-cacheable actions
-    [],
+    [
+        GameController::class => 'detail',
+    ],
     ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
 );
 
