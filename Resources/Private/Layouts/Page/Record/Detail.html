@@ -30,7 +30,8 @@
 </div>
 
 
-<div class="modal fade" id="deleteRecordModal" tabindex="-1" aria-labelledby="deleteRecordModalLabel" aria-hidden="true">
+<div class="modal fade" id="deleteRecordModal" tabindex="-1" aria-labelledby="deleteRecordModalLabel"
+    aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -42,11 +43,10 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-                <button type="button" class="btn btn-primary text-white">
-                    <f:link.action controller="Record" pluginName="record" action="delete"
-                        arguments="{recordId: data.0.uid}">
-                        Delete</f:link.action>
-                </button>
+
+                <f:link.action class="btn btn-primary" controller="Record" pluginName="record" action="delete"
+                    arguments="{recordId: data.0.uid}">
+                    Delete</f:link.action>
             </div>
         </div>
     </div>
