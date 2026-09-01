@@ -1,27 +1,34 @@
-<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteRecordModal">
-    Delete this record
-</button>
+<f:if condition="{data.record.0}">
+    <f:then>
+        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteRecordModal">
+            Delete this record
+        </button>
 
-<f:debug title="Debug Record Data">{data.record}</f:debug>
+        <div class="modal fade" id="deleteRecordModal" tabindex="-1" aria-labelledby="deleteRecordModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Delete Record</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Are you sure you want to delete this record?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
 
-<div class="modal fade" id="deleteRecordModal" tabindex="-1" aria-labelledby="deleteRecordModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Delete Record</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p>Are you sure you want to delete this record?</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-
-                <f:link.action class="btn btn-danger" controller="Record" pluginName="record" action="delete"
-                    arguments="{recordId: data.record.uid}">
-                    Delete</f:link.action>
+                        <f:link.action class="btn btn-danger" controller="Record" pluginName="record" action="delete"
+                            arguments="{recordId: data.record.0.uid}">
+                            Delete</f:link.action>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</div>
+    </f:then>
+    <f:else>
+        <div class="alert alert-warning" role="alert">
+            <p>Record not found.</p>
+        </div>
+    </f:else>
+</f:if>
