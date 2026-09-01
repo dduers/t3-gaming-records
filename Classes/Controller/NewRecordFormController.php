@@ -28,7 +28,7 @@ class NewRecordFormController extends ActionController
 
     public function performAction(): ResponseInterface
     {
-        DebuggerUtility::var_dump('performAction', 'called');
+        //DebuggerUtility::var_dump('performAction', 'called');
         return $this->htmlResponse();
     }
 }
