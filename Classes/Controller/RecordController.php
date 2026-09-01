@@ -57,8 +57,12 @@ class RecordController extends BaseController
         $records = $this->recordRepository->findRecordsByDemand($demand);
 
 
-        $userId = $this->request->getAttribute('frontend.user');
-        DebuggerUtility::var_dump($userId);
+        $frontEndUser = $this->request->getAttribute('frontend.user');
+        $frontEndUserId = $frontEndUser->user['uid'] ?? null;
+
+        $recordUserId = $records[0]->getPlayerId() ?? null;
+
+        DebuggerUtility::var_dump([$frontEndUserId, $recordUserId]);
 
 
         try {
