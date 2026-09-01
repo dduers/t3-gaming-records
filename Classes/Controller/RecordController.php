@@ -56,6 +56,11 @@ class RecordController extends BaseController
         $demand = $demandDto->createDemand($this->settings, $this->request);
         $records = $this->recordRepository->findRecordsByDemand($demand);
 
+
+        $userId = $this->request->getAttribute('frontend.user');
+        DebuggerUtility::var_dump($userId);
+
+
         try {
             $fileRepository = GeneralUtility::makeInstance(FileRepository::class);
             $fileReferences = $fileRepository->findByRelation('tx_t3gamingrecords_domain_model_record', 'fal_media', $recordId);
@@ -89,7 +94,7 @@ class RecordController extends BaseController
         $recordId = (int)($this->request->getArgument('recordId') ?? 0);
         $record = $this->recordRepository->findByUid($recordId);
 
-        DebuggerUtility::var_dump($recordId);
+        //DebuggerUtility::var_dump($recordId);
 
         if ($record) {
             $this->recordRepository->remove($record);
