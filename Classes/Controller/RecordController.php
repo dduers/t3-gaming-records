@@ -56,15 +56,6 @@ class RecordController extends BaseController
         $demand = $demandDto->createDemand($this->settings, $this->request);
         $records = $this->recordRepository->findRecordsByDemand($demand);
 
-
-        $frontEndUser = $this->request->getAttribute('frontend.user');
-        $frontEndUserId = $frontEndUser->user['uid'] ?? null;
-
-        $recordUserId = $records[0]->getPlayerId() ?? null;
-
-        DebuggerUtility::var_dump([$frontEndUserId, $recordUserId]);
-
-
         try {
             $fileRepository = GeneralUtility::makeInstance(FileRepository::class);
             $fileReferences = $fileRepository->findByRelation('tx_t3gamingrecords_domain_model_record', 'fal_media', $recordId);
@@ -75,6 +66,7 @@ class RecordController extends BaseController
         $this->view->assign('data', [
             'record' => $records,
             'recordpicture' => $fileReferences,
+            'removeable' => $this->isUserAllowedToDeleteRecord(),
         ]);
         $this->view->assign('view', [
             'record' => [
@@ -95,15 +87,30 @@ class RecordController extends BaseController
      */
     public function deleteAction(): ResponseInterface
     {
-        $recordId = (int)($this->request->getArgument('recordId') ?? 0);
-        $record = $this->recordRepository->findByUid($recordId);
-
         //DebuggerUtility::var_dump($recordId);
 
-        if ($record) {
+        if ($this->isUserAllowedToDeleteRecord()) {
+            $recordId = (int)($this->request->getArgument('recordId') ?? 0);
+            $record = $this->recordRepository->findByUid($recordId);
             $this->recordRepository->remove($record);
         }
 
         return $this->htmlResponse();
+    }
+
+    /**
+     * check if the current user is allowed to delete the record
+     * 
+     * @return bool
+     */
+    private function isUserAllowedToDeleteRecord(): bool
+    {
+        $frontEndUser = $this->request->getAttribute('frontend.user');
+        $frontEndUserId = $frontEndUser->user['uid'] ?? null;
+        $recordId = (int)($this->request->getArgument('recordId') ?? 0);
+        $record = $this->recordRepository->findByUid($recordId);
+        $recordUserId = $record ? $record->getPlayerId() : null;
+
+        return $frontEndUserId === $recordUserId;
     }
 }
