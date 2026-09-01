@@ -86,7 +86,7 @@ class RecordController extends BaseController
      */
     public function deleteAction(): ResponseInterface
     {
-        $recordId = (int)($this->request->getQueryParams()['tx_t3gamingrecords_record']['recordId'] ?? 0);
+        $recordId = (int)($this->request->getArgument('recordId') ?? 0);
         $record = $this->recordRepository->findByUid($recordId);
 
         //DebuggerUtility::var_dump($record);
