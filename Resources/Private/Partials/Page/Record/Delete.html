@@ -1,4 +1,4 @@
-<f:if condition="{data.record.0}">
+<f:if condition="{data.record.0 && data.removeable}">
     <f:then>
         <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteRecordModal">
             Delete this record
@@ -28,7 +28,7 @@
     </f:then>
     <f:else>
         <div class="alert alert-warning" role="alert">
-            <p>Record not found.</p>
+            Record not found or not allowed to delete.
         </div>
     </f:else>
 </f:if>
