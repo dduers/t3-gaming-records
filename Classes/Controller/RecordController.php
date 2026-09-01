@@ -89,7 +89,7 @@ class RecordController extends BaseController
         $recordId = (int)($this->request->getArgument('recordId') ?? 0);
         $record = $this->recordRepository->findByUid($recordId);
 
-        //DebuggerUtility::var_dump($record);
+        DebuggerUtility::var_dump($recordId);
 
         if ($record) {
             $this->recordRepository->remove($record);
