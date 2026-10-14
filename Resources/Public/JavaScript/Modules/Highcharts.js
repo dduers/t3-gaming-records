@@ -32,6 +32,18 @@ export function highcharts_init() {
         },
     }
 
+    fetch(window.location.href, {
+        method: 'GET',
+        headers: {
+            'X-Requested-With': 'XMLHttpRequest',
+        },
+        body: JSON.stringify({ key: 'value' })
+    })
+        .then(response => response.json())
+        .then(data => console.log(data));
+
+
+
     let elements = document.querySelectorAll('.t3gamingrecort-chart-record');
 
     elements.forEach(e => {
