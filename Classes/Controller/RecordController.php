@@ -93,7 +93,6 @@ class RecordController extends BaseController
     public function deleteAction(): ResponseInterface
     {
         //DebuggerUtility::var_dump($recordId);
-
         if ($this->isUserAllowedToDeleteRecord()) {
             $recordId = (int)($this->request->getArgument('recordId') ?? 0);
             $record = $this->recordRepository->findByUid($recordId);
