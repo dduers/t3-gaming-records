@@ -2,7 +2,6 @@ export function highcharts_init() {
     let settings = {
         full: {
             chart: {
-                plotBorderColor: 'var(--highcharts-neutral-color-10, #e6e6e6)',
                 plotBorderWidth: 1,
                 plotBorderRadius: 5
             },
@@ -34,7 +33,6 @@ export function highcharts_init() {
                 },
                 lineWidth: 0,
                 tickLength: 6,
-                tickColor: 'var(--highcharts-neutral-color-10, #e6e6e6)'
             },
 
             legend: {
