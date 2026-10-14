@@ -10,7 +10,7 @@ ajaxResponse {
     }
     // 10 = TEXT
     // 10.value = {"response": "true"}
-    10 = USER
+    10 = USER_INT
     10 {
         userFunc = TYPO3\CMS\Extcore\Core\Bootstrap->run
         vendorName = Dduers
