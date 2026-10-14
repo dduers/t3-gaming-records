@@ -32,6 +32,8 @@ export function highcharts_init() {
         },
     }
 
+    console.log(window.location.href);
+
     fetch(window.location.href, {
         method: 'GET',
         headers: {
