@@ -9,6 +9,7 @@ use Dduers\T3GamingRecords\Controller\GameTableController;
 use Dduers\T3GamingRecords\Controller\PlayerController;
 use Dduers\T3GamingRecords\Controller\PlayerHeaderController;
 use Dduers\T3GamingRecords\Controller\PlayerTableController;
+use Dduers\T3GamingRecords\Controller\RecordChartController;
 use Dduers\T3GamingRecords\Controller\RecordController;
 use Dduers\T3GamingRecords\Controller\RecordHeaderController;
 use Dduers\T3GamingRecords\Controller\RecordNewController;
@@ -80,6 +81,17 @@ ExtensionUtility::configurePlugin(
     'RecordTable',
     [
         RecordTableController::class => 'show',
+    ],
+    // non-cacheable actions
+    [],
+    ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
+);
+
+ExtensionUtility::configurePlugin(
+    't3_gaming_records',
+    'RecordChart',
+    [
+        RecordChartController::class => 'show',
     ],
     // non-cacheable actions
     [],

@@ -1,0 +1,17 @@
+page {
+    includeCSS {
+        highcharts = //cdnjs.cloudflare.com/ajax/libs/highcharts/12.4.0/css/highcharts.min.css
+        highcharts.integrity = sha512-1bNVsqHb/kY3E9fiWHAs7j9i9lLOYMEYoCE08GhLInkCQbij+mSTmohPrqthgXpECN8x9n1NE8T+xL7owVhHAQ==
+        highcharts.crossorigin = anonymous
+        highcharts.external = 1
+    }
+    includeJSFooter {
+        highcharts = //cdnjs.cloudflare.com/ajax/libs/highcharts/12.4.0/esm/highcharts-more.js
+        highcharts.integrity = sha512-b9MyY0CtQG7XAdxnLEjCnS1Uz3A7jdt3kykWG56FMNI9Jkska9rnjgX5ZtcHGxgAC38KRk7Dt/IUDRN0fraLSA==
+        highcharts.crossorigin = anonymous
+        highcharts.external = 1
+
+        custom = EXT:t3_gaming_records/Resources/Public/JavaScript/main.js
+        custom.type = module
+    }
+}
