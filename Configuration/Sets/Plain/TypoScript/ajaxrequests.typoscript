@@ -30,5 +30,5 @@ ajaxEndpoint {
     }
 
     # Assign your plugin or content element
-    10 < plugin.tx_t3gamingrecords_record
+    10 < plugin.tx_t3gamingrecords_recordchart
 }
