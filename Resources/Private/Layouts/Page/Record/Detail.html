@@ -1,29 +1,27 @@
-<div class="container">
+<div class="row mb-3">
+    <div class="col-md-12">
+        <f:render partial="Record/Header" arguments="{data: data.record}" />
+    </div>
+</div>
+<div class="row mb-3">
+    <div class="col-md-12">
+        <f:render partial="Record/Table" arguments="{data: data.record, view: view.record}" />
+    </div>
+</div>
+<f:if condition="{data.removeable}">
     <div class="row mb-3">
         <div class="col-md-12">
-            <f:render partial="Record/Header" arguments="{data: data.record}" />
+            <f:render partial="Record/Delete" arguments="{data: data}" />
         </div>
     </div>
-    <div class="row mb-3">
-        <div class="col-md-12">
-            <f:render partial="Record/Table" arguments="{data: data.record, view: view.record}" />
-        </div>
+</f:if>
+<div class="row mb-5">
+    <div class="col-md-12">
+        <f:render partial="Record/Picture" arguments="{data: data.recordpicture}" />
     </div>
-    <f:if condition="{data.removeable}">
-        <div class="row mb-3">
-            <div class="col-md-12">
-                <f:render partial="Record/Delete" arguments="{data: data}" />
-            </div>
-        </div>
-    </f:if>
-    <div class="row mb-5">
-        <div class="col-md-12">
-            <f:render partial="Record/Picture" arguments="{data: data.recordpicture}" />
-        </div>
-    </div>
-    <div class="row mb-3">
-        <div class="col-md-12">
-            <f:render partial="Record/Chart" arguments="{data: data.record, view: view.record}" />
-        </div>
+</div>
+<div class="row mb-3">
+    <div class="col-md-12">
+        <f:render partial="Record/Chart" arguments="{data: data.record, view: view.record}" />
     </div>
 </div>
