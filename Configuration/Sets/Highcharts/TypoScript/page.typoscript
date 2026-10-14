@@ -7,6 +7,7 @@ page {
     }
     includeJSFooter {
         highcharts = //cdnjs.cloudflare.com/ajax/libs/highcharts/12.4.0/esm/highcharts-more.js
+        highcharts.type = module
         highcharts.integrity = sha512-b9MyY0CtQG7XAdxnLEjCnS1Uz3A7jdt3kykWG56FMNI9Jkska9rnjgX5ZtcHGxgAC38KRk7Dt/IUDRN0fraLSA==
         highcharts.crossorigin = anonymous
         highcharts.external = 1
