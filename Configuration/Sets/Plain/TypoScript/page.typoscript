@@ -1,0 +1,6 @@
+page {
+    includeJSFooter {
+        custom = EXT:t3_gaming_records/Resources/Public/JavaScript/main.js
+        custom.type = module
+    }
+}
