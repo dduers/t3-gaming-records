@@ -77,10 +77,8 @@ class RecordController extends BaseController
             ],
         ]);
 
-        // $isAjax = ($this->request->getHeaderLine('X-Requested-With') === 'XMLHttpRequest');
-        $isAjax = ($this->request->getHeaderLine('Accept') === 'application/json');
-        if (true) {
-            DebuggerUtility::var_dump($isAjax);
+        $isAjax = ($this->request->getHeaderLine('X-Requested-With') == 'XMLHttpRequest');
+        if ($isAjax) {
             $json = json_encode([
                 'test' => $this->request->getHeaderLine('X-Requested-With')
             ]);
