@@ -1,36 +1,36 @@
-ajaxResponse = PAGE
-ajaxResponse {
-    typeNum = 458962
-    config {
-        disableAllHeaderCode = 1
-        additionalHeaders.10.header = Content-Type: application/json
-        xhtml_cleaning = 0
-        admPanel = 0
-        debug = 0
-    }
-    10 = USER
-    10 {
-        userFunc = TYPO3\CMS\Extcore\Core\Bootstrap->run
-        vendorName = Dduers
-        extensionName = GamingRecords
-        pluginName = RecordChart
-        action = show
-    }
-}
-
-
-// ajaxEndpoint = PAGE
-// ajaxEndpoint {
+// ajaxResponse = PAGE
+// ajaxResponse {
 //     typeNum = 458962
-    
 //     config {
 //         disableAllHeaderCode = 1
-//         additionalHeaders = Content-type: application/json
+//         additionalHeaders.10.header = Content-Type: application/json
 //         xhtml_cleaning = 0
 //         admPanel = 0
 //         debug = 0
 //     }
-
-//     # Assign your plugin or content element
-//     10 < plugin.tx_t3gamingrecords_recordchart
+//     10 = USER
+//     10 {
+//         userFunc = TYPO3\CMS\Extcore\Core\Bootstrap->run
+//         vendorName = Dduers
+//         extensionName = GamingRecords
+//         pluginName = RecordChart
+//         action = show
+//     }
 // }
+
+
+ajaxEndpoint = PAGE
+ajaxEndpoint {
+    typeNum = 458962
+    
+    config {
+        disableAllHeaderCode = 1
+        additionalHeaders = Content-type: application/json
+        xhtml_cleaning = 0
+        admPanel = 0
+        debug = 0
+    }
+
+    # Assign your plugin or content element
+    10 < plugin.tx_t3gamingrecords_recordchart
+}
