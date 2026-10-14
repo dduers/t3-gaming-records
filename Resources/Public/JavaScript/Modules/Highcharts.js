@@ -146,7 +146,7 @@ export function highcharts_init() {
         },
     }
 
-    let container = document.querySelector('.t3gamingrecort-chart-record');
+    let container = document.querySelectorAll('.t3gamingrecort-chart-record');
 
     let chart_record = Highcharts.chart(container, Object.assign({}, settings.full, settings.record));
 };
