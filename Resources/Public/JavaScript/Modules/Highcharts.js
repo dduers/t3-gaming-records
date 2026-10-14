@@ -45,7 +45,7 @@ export function highcharts_init() {
                 'X-Requested-With': 'XMLHttpRequest',
             },
         })
-            .then(response => response.body/*.json()*/)
+            .then(response => response.text())
             .then(data => console.log(data));
 
         elements.forEach(e => {
