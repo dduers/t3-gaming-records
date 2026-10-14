@@ -8,17 +8,52 @@ ajaxResponse {
         admPanel = 0
         debug = 0
     }
-    10 = TEXT
-    10.value = {"response": "true"}
-//     10 = USER
-//     10 {
-//         userFunc = TYPO3\CMS\Extcore\Core\Bootstrap->run
-//         vendorName = Dduers
-//         extensionName = GamingRecords
-//         pluginName = RecordChart
-//         action = show
-//     }
+    // 10 = TEXT
+    // 10.value = {"response": "true"}
+    10 = USER
+    10 {
+        userFunc = TYPO3\CMS\Extcore\Core\Bootstrap->run
+        vendorName = Dduers
+        extensionName = GamingRecords
+        pluginName = RecordChart
+        controller = RecordChartController
+        action = show
+
+        # Explicitly map the action to a numeric index
+        switchableControllerActions {
+            RecordChartController {
+                1 = show
+            }
+        }
+
+        # Inherit settings, persistence, and view configuration
+        settings < plugin.tx_t3gamingrecords.recordchart
+        persistence < plugin.tx_t3gamingrecords.recordchart
+        view < plugin.tx_t3gamingrecords.recordchart
+    }
 }
+
+// lib.myAction = USER_INT
+// lib.myAction {
+//     userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
+//     vendorName = YourVendor
+//     extensionName = YourExtension
+//     pluginName = YourPlugin
+//     controller = YourController
+//     action = yourAction
+
+//     # Explicitly map the action to a numeric index
+//     switchableControllerActions {
+//         YourController {
+//             1 = yourAction
+//         }
+//     }
+
+//     # Inherit settings, persistence, and view configuration
+//     settings < plugin.tx_yourextension.yourplugin
+//     persistence < plugin.tx_yourextension.yourplugin
+//     view < plugin.tx_yourextension.yourplugin
+// }
 
 
 // ajaxEndpoint = PAGE
