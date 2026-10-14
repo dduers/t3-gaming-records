@@ -32,22 +32,21 @@ export function highcharts_init() {
         },
     }
 
-    console.log(window.location.href);
-
-    fetch(window.location.href, {
-        method: 'GET',
-        headers: {
-            'X-Requested-With': 'XMLHttpRequest',
-        },
-    })
-        .then(response => response.json())
-        .then(data => console.log(data));
-
-
-
     let elements = document.querySelectorAll('.t3gamingrecort-chart-record');
 
-    elements.forEach(e => {
-        let chart_record = Highcharts.chart(e, Object.assign({}, settings.full, settings.record));
-    });
+    if (elements.length) {
+
+        fetch(window.location.href, {
+            method: 'GET',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+            },
+        })
+            .then(response => response.json())
+            .then(data => console.log(data));
+
+        elements.forEach(e => {
+            let chart_record = Highcharts.chart(e, Object.assign({}, settings.full, settings.record));
+        });
+    }
 };
