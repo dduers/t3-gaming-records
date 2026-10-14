@@ -36,7 +36,7 @@ export function highcharts_init() {
 
     if (elements.length) {
 
-        console.log(window.location.href, elements.length);
+        console.log(window.location.href + '&type=458962', elements.length);
 
         fetch(window.location.href, {
             method: 'GET',
