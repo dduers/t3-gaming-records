@@ -161,7 +161,23 @@ $ctypeKey = ExtensionUtility::registerPlugin(
     'Record Table',
     'game-record',
     'Gaming Records (Partials)',
-    'Show all highscores and speedrun information',
+    'Show all highscores and speedrun information (Table)',
+    $flexForm
+);
+ExtensionManagementUtility::addToAllTCAtypes(
+    'tt_content',
+    '--div--;Pages,pi_flexform,',
+    $ctypeKey,
+    'after:subheader',
+);
+$flexForm = 'FILE:EXT:t3_gaming_records/Configuration/FlexForms/record_chart.xml';
+$ctypeKey = ExtensionUtility::registerPlugin(
+    't3_gaming_records',
+    'RecordChart',
+    'Record Chart',
+    'game-record',
+    'Gaming Records (Partials)',
+    'Show all highscores and speedrun information (Chart)',
     $flexForm
 );
 ExtensionManagementUtility::addToAllTCAtypes(
