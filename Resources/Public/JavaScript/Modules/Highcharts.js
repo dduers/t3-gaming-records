@@ -39,7 +39,6 @@ export function highcharts_init() {
         headers: {
             'X-Requested-With': 'XMLHttpRequest',
         },
-        body: JSON.stringify({ key: 'value' })
     })
         .then(response => response.json())
         .then(data => console.log(data));
