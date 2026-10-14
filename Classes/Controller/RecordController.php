@@ -77,7 +77,7 @@ class RecordController extends BaseController
             ],
         ]);
 
-        $isAjax = ($this->request->getHeaderLine('X-Requested-With') == 'XMLHttpRequest');
+        $isAjax = ($this->request->getArgument('ajax') === 'yes');
         if ($isAjax) {
             //$data = ['key' => 'value'];
             //$this->view->assign('data', $data);
