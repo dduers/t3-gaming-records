@@ -44,7 +44,7 @@ class RecordChartController extends BaseController
         }
 
         $isAjax = $this->request->getHeaderLine('X-Requested-With') === 'XMLHttpRequest';
-        if ($isAjax === true) {
+        if (true) {
             return $this->jsonResponse(json_encode(['test' => 'test']));
         }
         return $this->htmlResponse();
