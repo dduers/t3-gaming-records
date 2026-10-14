@@ -15,6 +15,7 @@ export function highcharts_init() {
                     text: 'Fruit eaten'
                 }
             },
+            styledMode: true,
             series: [{
                 name: 'Jane',
                 data: [1, 0, 4]
