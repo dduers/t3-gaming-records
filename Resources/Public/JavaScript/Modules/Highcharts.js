@@ -41,7 +41,7 @@ export function highcharts_init() {
         fetch(window.location.href, {
             method: 'GET',
             headers: {
-                'X-Requested-With': 'XMLHttpRequest',
+                'X-Requested-With': 'XMLHttpRequest'
             },
         })
             .then(response => response.json())
