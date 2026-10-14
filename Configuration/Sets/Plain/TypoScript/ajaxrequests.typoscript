@@ -1,20 +1,22 @@
-// ajaxResponse = PAGE
-// ajaxResponse {
-//     typeNum = 
-//     config {
-//         disableAllHeaderCode = 1
-//         additionalHeaders.10.header = Content-Type: application/json
-//     }
-//     10 = USER
-//     10 {
-//         userFunc = TYPO3\CMS\Extcore\Core\Bootstrap->run
-//         vendorName = Dduers
-//         extensionName = t3_gaming_records
-//         pluginName = game
-//         action = list
-//         switchableControllerActions.game.1 = list
-//     }
-// }
+ajaxResponse = PAGE
+ajaxResponse {
+    typeNum = 458962
+    config {
+        disableAllHeaderCode = 1
+        additionalHeaders.10.header = Content-Type: application/json
+        xhtml_cleaning = 0
+        admPanel = 0
+        debug = 0
+    }
+    10 = USER
+    10 {
+        userFunc = TYPO3\CMS\Extcore\Core\Bootstrap->run
+        vendorName = Dduers
+        extensionName = GamingRecords
+        pluginName = RecordChart
+        action = show
+    }
+}
 
 
 // ajaxEndpoint = PAGE
