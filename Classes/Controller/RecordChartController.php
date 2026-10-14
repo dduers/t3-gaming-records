@@ -16,27 +16,27 @@ class RecordChartController extends BaseController
 
     public function showAction(): ResponseInterface
     {
-        $recordId = (int)($this->request->getQueryParams()['tx_t3gamingrecords_record']['recordId'] ?? 0);
+        // $recordId = (int)($this->request->getQueryParams()['tx_t3gamingrecords_record']['recordId'] ?? 0);
 
-        if ($recordId) {
+        // if ($recordId) {
             
-            $demandDto = GeneralUtility::makeInstance(RecordDemand::class);
-            $demand = $demandDto->createDemand($this->settings, $this->request);
-            $records = $this->recordRepository->findRecordsByDemand($demand);
+        //     $demandDto = GeneralUtility::makeInstance(RecordDemand::class);
+        //     $demand = $demandDto->createDemand($this->settings, $this->request);
+        //     $records = $this->recordRepository->findRecordsByDemand($demand);
 
-            //$this->var_dump($records, 'records');
-            $this->view->assign('data', [
-                'record' => $records
-            ]);
-            $this->view->assign('view', [
-                'record' => [
-                    'table' => [
-                        'classes' => 'table table-striped table-bordered',
-                        'object' => 'record',
-                    ],
-                ],
-            ]);
-        }
+        //     //$this->var_dump($records, 'records');
+        //     $this->view->assign('data', [
+        //         'record' => $records
+        //     ]);
+        //     $this->view->assign('view', [
+        //         'record' => [
+        //             'table' => [
+        //                 'classes' => 'table table-striped table-bordered',
+        //                 'object' => 'record',
+        //             ],
+        //         ],
+        //     ]);
+        // }
 
         return $this->jsonResponse();
     }
