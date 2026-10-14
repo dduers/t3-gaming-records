@@ -6,7 +6,6 @@ use Dduers\T3GamingRecords\Domain\Model\Dto\RecordDemand;
 use Dduers\T3GamingRecords\Domain\Repository\RecordRepository;
 use Exception;
 use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
 use TYPO3\CMS\Core\Localization\Locale;
 use TYPO3\CMS\Core\Resource\FileRepository;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
@@ -49,7 +48,7 @@ class RecordController extends BaseController
      * 
      * @return ResponseInterface
      */
-    public function detailAction(ServerRequestInterface $request): ResponseInterface
+    public function detailAction(): ResponseInterface
     {
         $recordId = (int)($this->request->getArgument('recordId') ?? 0);
 
@@ -78,10 +77,10 @@ class RecordController extends BaseController
             ],
         ]);
 
-        $isAjax = $request->getHeaderLine('X-Requested-With') === 'XMLHttpRequest';
+        $isAjax = $this->request->getHeaderLine('X-Requested-With') === 'XMLHttpRequest';
         if ($isAjax === true) {
             return $this->jsonResponse(json_encode([
-                'test' => $request->getHeaderLine('X-Requested-With')
+                'test' => $this->request->getHeaderLine('X-Requested-With')
             ]));
         } else {
             return $this->htmlResponse();
