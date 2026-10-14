@@ -41,7 +41,8 @@ export function highcharts_init() {
         fetch(window.location.href, {
             method: 'GET',
             headers: {
-                'X-Requested-With': 'XMLHttpRequest'
+                'Accept': 'application/json; charset=utf-8',
+                'X-Requested-With': 'XMLHttpRequest',
             },
         })
             .then(response => response.json())
