@@ -12,7 +12,7 @@ page {
         highcharts.crossorigin = anonymous
         highcharts.external = 1
 
-        custom = EXT:t3_gaming_records/Resources/Public/JavaScript/Modules/highcharts.js
-        custom.type = module
+        highcharts.custom = EXT:t3_gaming_records/Resources/Public/JavaScript/Modules/highcharts.js
+        highcharts.custom.type = module
     }
 }
