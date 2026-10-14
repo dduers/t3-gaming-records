@@ -43,6 +43,7 @@ class RecordChartController extends BaseController
             ]);
         }
 
+        return $this->htmlResponse();
         return $this->jsonResponse();
     }
 }
