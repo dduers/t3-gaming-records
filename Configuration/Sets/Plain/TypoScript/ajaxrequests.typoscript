@@ -17,18 +17,18 @@
 // }
 
 
-ajaxEndpoint = PAGE
-ajaxEndpoint {
-    typeNum = 458962
+// ajaxEndpoint = PAGE
+// ajaxEndpoint {
+//     typeNum = 458962
     
-    config {
-        disableAllHeaderCode = 1
-        additionalHeaders = Content-type: application/json
-        xhtml_cleaning = 0
-        admPanel = 0
-        debug = 0
-    }
+//     config {
+//         disableAllHeaderCode = 1
+//         additionalHeaders = Content-type: application/json
+//         xhtml_cleaning = 0
+//         admPanel = 0
+//         debug = 0
+//     }
 
-    # Assign your plugin or content element
-    10 < plugin.tx_t3gamingrecords_recordchart
-}
+//     # Assign your plugin or content element
+//     10 < plugin.tx_t3gamingrecords_recordchart
+// }
