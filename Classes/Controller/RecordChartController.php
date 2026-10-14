@@ -19,9 +19,14 @@ class RecordChartController extends BaseController
         $recordId = (int)($this->request->getQueryParams()['tx_t3gamingrecords_record']['recordId'] ?? 0);
 
         if ($recordId) {
-            
+
             $demandDto = GeneralUtility::makeInstance(RecordDemand::class);
-            $demand = $demandDto->createDemand($this->settings, $this->request);
+            $demand = $demandDto->createDemand([
+                $this->settings,
+                ...[
+                    'recordMode' => 'speedrun'
+                ]
+            ], $this->request);
             $records = $this->recordRepository->findRecordsByDemand($demand);
 
             //$this->var_dump($records, 'records');
