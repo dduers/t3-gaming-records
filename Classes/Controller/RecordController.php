@@ -77,7 +77,14 @@ class RecordController extends BaseController
             ],
         ]);
 
-        return $this->htmlResponse();
+        $isAjax = $this->request->getHeaderLine('X-Requested-With') === 'XMLHttpRequest';
+        if ($isAjax === true) {
+            return $this->jsonResponse(json_encode([
+                'test' => $this->request->getHeaderLine('X-Requested-With')
+            ]));
+        } else {
+            return $this->htmlResponse();
+        }
     }
 
     /**
