@@ -17,12 +17,12 @@ ajaxResponse {
         extensionName = GamingRecords
         pluginName = RecordChart
         controller = RecordChartController
-        action = show
+        action = ShowAction
 
         # Explicitly map the action to a numeric index
         switchableControllerActions {
             RecordChartController {
-                1 = show
+                1 = ShowAction
             }
         }
 
