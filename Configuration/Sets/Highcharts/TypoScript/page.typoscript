@@ -1,14 +1,14 @@
 page {
     includeCSS {
-        highcharts = //cdnjs.cloudflare.com/ajax/libs/highcharts/12.4.0/css/highcharts.min.css
-        highcharts.integrity = sha512-1bNVsqHb/kY3E9fiWHAs7j9i9lLOYMEYoCE08GhLInkCQbij+mSTmohPrqthgXpECN8x9n1NE8T+xL7owVhHAQ==
+        highcharts = //cdnjs.cloudflare.com/ajax/libs/highcharts/12.3.0/css/highcharts.css
+        highcharts.integrity = sha512-HcBrkS08ptJ9SXB/htzWLwxVNC0gZzJJKxtNiIULX1g8pBg3NwWZHklDEzWBYknV+sYUQMrwwy4eUBgvqwi1nw==
         highcharts.crossorigin = anonymous
         highcharts.external = 1
     }
     includeJSFooter {
-        highcharts = //cdnjs.cloudflare.com/ajax/libs/highcharts/12.4.0/esm/highcharts-more.js
+        highcharts = https://cdnjs.cloudflare.com/ajax/libs/highcharts/12.3.0/highcharts.js
         highcharts.type = module
-        highcharts.integrity = sha512-b9MyY0CtQG7XAdxnLEjCnS1Uz3A7jdt3kykWG56FMNI9Jkska9rnjgX5ZtcHGxgAC38KRk7Dt/IUDRN0fraLSA==
+        highcharts.integrity = sha512-8TKmTrSzqd19b6/QDfZ6KHEj2wCIGMPQtw6HtYI/XlOiraFS3kKkfX8Dx0rffm9zhH3ap18vhaaEc/e1MvI7jw==
         highcharts.crossorigin = anonymous
         highcharts.external = 1
 
