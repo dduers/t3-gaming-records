@@ -48,7 +48,7 @@ class RecordController extends BaseController
      * 
      * @return ResponseInterface
      */
-    public function detailAction()/*: ResponseInterface*/
+    public function detailAction(): ResponseInterface
     {
         $recordId = (int)($this->request->getArgument('recordId') ?? 0);
 
@@ -82,8 +82,7 @@ class RecordController extends BaseController
             //$data = ['key' => 'value'];
             //$this->view->assign('data', $data);
             // Returns a PSR-7 response with application/json header
-            return json_encode(['test' => 'test']);
-            return $this->jsonResponse();
+            return $this->jsonResponse(json_encode([$this->request->getHeaderLine('X-Requested-With')]));
         } else {
             return $this->htmlResponse();
         }
