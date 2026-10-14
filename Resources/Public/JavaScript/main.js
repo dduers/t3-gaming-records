@@ -1,5 +1,5 @@
-import * as Datatables from './Modules/datatables'
-import * as Highcharts from './Modules/highcharts'
+import * as Datatables from './Modules/Datatables.js'
+import * as Highcharts from './Modules/Highcharts.js'
 
 (function () {
     Datatables.database_init();
