@@ -43,10 +43,10 @@ class RecordChartController extends BaseController
             ]);
         }
 
-        $isAjax = $this->request->getHeaderLine('X-Requested-With') === 'XMLHttpRequest';
-        if ($isAjax === true) {
+        // $isAjax = $this->request->getHeaderLine('X-Requested-With') === 'XMLHttpRequest';
+        // if ($isAjax === true) {
             return $this->jsonResponse();
-        }
-        return $this->htmlResponse();
+        // }
+        // return $this->htmlResponse();
     }
 }
