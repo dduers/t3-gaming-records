@@ -21,7 +21,7 @@ page {
         dataTables_full.crossorigin = anonymous
         dataTables_full.external = 1
 
-        custom = EXT:t3_gaming_records/Resources/Public/JavaScript/main.js
+        custom = EXT:t3_gaming_records/Resources/Public/JavaScript/Modules/datatables.js
         custom.type = module
     }
 }
