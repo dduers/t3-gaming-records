@@ -36,9 +36,11 @@ export function highcharts_init() {
 
     if (elements.length) {
 
-        console.log(window.location.href + '&type=458962', elements.length);
+        let url = window.location.href + '&type=458962';
 
-        fetch(window.location.href, {
+        console.log(url, elements.length);
+
+        fetch(url, {
             method: 'GET',
             headers: {
                 'Accept': 'application/json',
