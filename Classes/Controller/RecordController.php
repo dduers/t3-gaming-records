@@ -79,10 +79,10 @@ class RecordController extends BaseController
 
         $isAjax = ($this->request->getHeaderLine('X-Requested-With') == 'XMLHttpRequest');
         if ($isAjax) {
-            $json = json_encode([
-                'test' => $this->request->getHeaderLine('X-Requested-With')
-            ]);
-            return $this->jsonResponse($json);
+            $data = ['key' => 'value'];
+            $this->view->assign('data', $data);
+            // Returns a PSR-7 response with application/json header
+            return $this->jsonResponse();
         } else {
             return $this->htmlResponse();
         }
