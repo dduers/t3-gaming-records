@@ -10,19 +10,19 @@ ajaxResponse {
     }
     // 10 = TEXT
     // 10.value = {"response": "true"}
-    10 = USER_INT
+    10 = USER
     10 {
         userFunc = TYPO3\CMS\Extcore\Core\Bootstrap->run
         vendorName = Dduers
         extensionName = T3GamingRecords
         pluginName = RecordChart
-        controller = RecordChartController
-        action = showAction
+        controller = RecordChart
+        action = show
 
         # Explicitly map the action to a numeric index
         switchableControllerActions {
             RecordChartController {
-                1 = showAction
+                1 = show
             }
         }
 
