@@ -82,7 +82,11 @@ class RecordController extends BaseController
             //$data = ['key' => 'value'];
             //$this->view->assign('data', $data);
             // Returns a PSR-7 response with application/json header
-            return $this->jsonResponse(json_encode([$this->request->getHeaderLine('X-Requested-With')]));
+            // return $this->jsonResponse(json_encode([$this->request->getHeaderLine('X-Requested-With')]));
+
+            return $this->responseFactory->createResponse()
+                ->withHeader('Content-Type', 'application/json')
+                ->withBody($this->streamFactory->createStream(json_encode(['data' => 'value'])));
         } else {
             return $this->htmlResponse();
         }
