@@ -27,9 +27,9 @@ ajaxResponse {
         }
 
         # Inherit settings, persistence, and view configuration
-        settings < plugin.tx_t3gamingrecords.recordchart
-        persistence < plugin.tx_t3gamingrecords.recordchart
-        view < plugin.tx_t3gamingrecords.recordchart
+        settings < plugin.tx_t3gamingrecords_recordchart
+        persistence < plugin.tx_t3gamingrecords_recordchart
+        view < plugin.tx_t3gamingrecords_recordchart
     }
 }
 
