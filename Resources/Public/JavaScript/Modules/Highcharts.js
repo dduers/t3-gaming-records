@@ -36,7 +36,7 @@ export function highcharts_init() {
 
     if (elements.length) {
 
-        let url = window.location.href + '&type=458962';
+        let url = window.location.href; // + '/ajax.json';
 
         console.log(url, elements.length);
 
@@ -51,10 +51,14 @@ export function highcharts_init() {
             .then(html => {
                 const parser = new DOMParser();
                 const doc = parser.parseFromString(html, 'text/html');
-                const elements = doc.querySelectorAll('.frame-type-t3gamingrecords_record');
-                const text = elements[0].textContent.trim();
+                const elems = doc.querySelectorAll('.frame-type-t3gamingrecords_record');
+                const text = elems[0].textContent.trim();
                 const json = JSON.parse(text);
                 console.log(json);
+
+                elements.forEach(e => {
+                    let chart_record = Highcharts.chart(e, Object.assign({}, settings.full, settings.record));
+                });
             });
 
 
