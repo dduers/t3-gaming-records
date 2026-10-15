@@ -84,12 +84,11 @@ class RecordController extends BaseController
         if ($isAjax === true) {
 
             // $demandDto = GeneralUtility::makeInstance(RecordDemand::class);
-
             // $demand = $demandDto->createDemand($this->settings, $this->request);
             // $demand->setUid(0);
             // $records = $this->recordRepository->findRecordsByDemand($demand);
+            // DebuggerUtility::var_dump(['settings' => $this->settings, "request" => $this->request, "demand" => $demand, "records" => $records]);
 
-            //DebuggerUtility::var_dump(['settings' => $this->settings, "request" => $this->request, "demand" => $demand, "records" => $records]);
             return $this->jsonResponse(json_encode([
                 'series' => [
                     [
