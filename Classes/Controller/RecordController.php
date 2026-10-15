@@ -57,8 +57,6 @@ class RecordController extends BaseController
         $demand = $demandDto->createDemand($this->settings, $this->request);
         $records = $this->recordRepository->findRecordsByDemand($demand);
 
-        DebuggerUtility::var_dump(['settings' => $this->settings, "request" => $this->request, "demand" => $demand, "records" => $records]);
-
         try {
             $fileRepository = GeneralUtility::makeInstance(FileRepository::class);
             $fileReferences = $fileRepository->findByRelation('tx_t3gamingrecords_domain_model_record', 'fal_media', $recordId);
@@ -82,6 +80,8 @@ class RecordController extends BaseController
 
         $isAjax = $this->request->getHeaderLine('X-Requested-With') === 'XMLHttpRequest';
         if ($isAjax === true) {
+
+            DebuggerUtility::var_dump(['settings' => $this->settings, "request" => $this->request, "demand" => $demand, "records" => $records]);
 
             // $demandDto = GeneralUtility::makeInstance(RecordDemand::class);
             // $demand = $demandDto->createDemand($this->settings, $this->request);
