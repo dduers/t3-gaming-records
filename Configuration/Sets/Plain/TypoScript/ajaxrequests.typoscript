@@ -16,20 +16,20 @@ ajaxResponse {
         vendorName = Dduers
         extensionName = T3GamingRecords
         pluginName = RecordChart
-        controller = RecordChart
-        action = show
+        controller = RecordChartController
+        action = showAction
 
         # Explicitly map the action to a numeric index
         switchableControllerActions {
-            RecordChart {
-                1 = show
+            RecordChartController {
+                1 = showAction
             }
         }
 
         # Inherit settings, persistence, and view configuration
-        settings < plugin.tx_t3gamingrecords_recordchart
-        persistence < plugin.tx_t3gamingrecords_recordchart
-        view < plugin.tx_t3gamingrecords_recordchart
+        // settings < plugin.tx_t3gamingrecords_recordchart
+        // persistence < plugin.tx_t3gamingrecords_recordchart
+        // view < plugin.tx_t3gamingrecords_recordchart
     }
 }
 
