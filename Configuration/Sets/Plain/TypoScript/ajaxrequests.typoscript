@@ -1,38 +1,38 @@
-ajaxResponse = PAGE
-ajaxResponse {
-    typeNum = 458962
-    config {
-        disableAllHeaderCode = 1
-        additionalHeaders.10.header = Content-Type: application/json
-        xhtml_cleaning = 0
-        admPanel = 0
-        debug = 0
-    }
-    // 10 = TEXT
-    // 10.value = {"response": "true"}
-    10 = USER
-    10 {
-        userFunc = TYPO3\CMS\Extcore\Core\Bootstrap->run
-        // userFunc = Dduers\T3GamingRecords\Controller\RecordChartController->showAction
-        vendorName = Dduers
-        extensionName = T3GamingRecords
-        pluginName = RecordChart
-        controller = RecordChartController
-        action = showAction
+// ajaxResponse = PAGE
+// ajaxResponse {
+//     typeNum = 458962
+//     config {
+//         disableAllHeaderCode = 1
+//         additionalHeaders.10.header = Content-Type: application/json
+//         xhtml_cleaning = 0
+//         admPanel = 0
+//         debug = 0
+//     }
+//     // 10 = TEXT
+//     // 10.value = {"response": "true"}
+//     10 = USER
+//     10 {
+//         userFunc = TYPO3\CMS\Extcore\Core\Bootstrap->run
+//         // userFunc = Dduers\T3GamingRecords\Controller\RecordChartController->showAction
+//         vendorName = Dduers
+//         extensionName = T3GamingRecords
+//         pluginName = RecordChart
+//         controller = RecordChartController
+//         action = showAction
 
-        # Explicitly map the action to a numeric index
-        switchableControllerActions {
-            RecordChartController {
-                1 = showAction
-            }
-        }
+//         # Explicitly map the action to a numeric index
+//         switchableControllerActions {
+//             RecordChartController {
+//                 1 = showAction
+//             }
+//         }
 
-        # Inherit settings, persistence, and view configuration
-        // settings < plugin.tx_t3gamingrecords_recordchart
-        // persistence < plugin.tx_t3gamingrecords_recordchart
-        // view < plugin.tx_t3gamingrecords_recordchart
-    }
-}
+//         # Inherit settings, persistence, and view configuration
+//         // settings < plugin.tx_t3gamingrecords_recordchart
+//         // persistence < plugin.tx_t3gamingrecords_recordchart
+//         // view < plugin.tx_t3gamingrecords_recordchart
+//     }
+// }
 
 // lib.myAction = USER_INT
 // lib.myAction {
