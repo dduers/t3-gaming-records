@@ -16,13 +16,13 @@ export function highcharts_init() {
                     text: 'Fruit eaten'
                 }
             },
-            series: [{
-                name: 'Jane',
-                data: [1, 0, 4]
-            }, {
-                name: 'John',
-                data: [5, 7, 3]
-            }]
+            // series: [{
+            //     name: 'Jane',
+            //     data: [1, 0, 4]
+            // }, {
+            //     name: 'John',
+            //     data: [5, 7, 3]
+            // }]
         },
         basic: {
 
@@ -64,8 +64,8 @@ export function highcharts_init() {
 
 
 
-        elements.forEach(e => {
-            let chart_record = Highcharts.chart(e, Object.assign({}, settings.full, settings.record));
-        });
+        // elements.forEach(e => {
+        //     let chart_record = Highcharts.chart(e, Object.assign({}, settings.full, settings.record));
+        // });
     }
 };
