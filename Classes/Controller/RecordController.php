@@ -82,6 +82,16 @@ class RecordController extends BaseController
 
         $isAjax = $this->request->getHeaderLine('X-Requested-With') === 'XMLHttpRequest';
         if ($isAjax === true) {
+
+            $demandDto = GeneralUtility::makeInstance(RecordDemand::class);
+
+            $demand = $demandDto->createDemand($this->settings, $this->request);
+            $demand->setUid(0);
+            $records = $this->recordRepository->findRecordsByDemand($demand);
+
+            DebuggerUtility::var_dump(['settings' => $this->settings, "request" => $this->request, "demand" => $demand, "records" => $records]);
+
+
             return $this->jsonResponse(json_encode([
                 'series' => [
                     [
@@ -92,7 +102,8 @@ class RecordController extends BaseController
                         'name' => 'John',
                         'data' => [5, 7, 3]
                     ]
-                ]
+                ],
+                'records' => $records,
             ]));
         } else {
             return $this->htmlResponse();
