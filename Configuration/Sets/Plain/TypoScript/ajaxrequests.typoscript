@@ -16,13 +16,13 @@ ajaxResponse {
         vendorName = Dduers
         extensionName = T3GamingRecords
         pluginName = RecordChart
-        controller = RecordChart
-        action = show
+        controller = RecordChartController
+        action = showAction
 
         # Explicitly map the action to a numeric index
         switchableControllerActions {
             RecordChartController {
-                1 = show
+                1 = showAction
             }
         }
 
