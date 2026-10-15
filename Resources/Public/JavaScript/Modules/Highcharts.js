@@ -48,7 +48,15 @@ export function highcharts_init() {
             },
         })
             .then(response => response.text())
-            .then(data => console.log(data));
+            .then(html => {
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(html, 'text/html');
+                const elements = doc.querySelectorAll('.frame-type-t3gamingrecords_record');
+                console.log(elements);
+            });
+
+
+
 
         elements.forEach(e => {
             let chart_record = Highcharts.chart(e, Object.assign({}, settings.full, settings.record));
