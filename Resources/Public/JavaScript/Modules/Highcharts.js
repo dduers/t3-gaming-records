@@ -57,6 +57,7 @@ export function highcharts_init() {
 
 
                 console.log(settings.full, json);
+                console.log(Object.assign({}, Object.assign({}, settings.full, json));
                 // console.log(Object.assign({}, settings.full, json));
 
                 elements.forEach(e => {
