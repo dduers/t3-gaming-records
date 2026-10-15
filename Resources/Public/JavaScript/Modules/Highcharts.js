@@ -57,7 +57,7 @@ export function highcharts_init() {
                 console.log(json);
 
                 elements.forEach(e => {
-                    let chart_record = Highcharts.chart(e, Object.assign({}, settings.full, settings.record));
+                    let chart_record = Highcharts.chart(e, Object.assign({}, Object.assign({}, settings.full, json), settings.record));
                 });
             });
 
