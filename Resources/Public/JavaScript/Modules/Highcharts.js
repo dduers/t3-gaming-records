@@ -54,7 +54,10 @@ export function highcharts_init() {
                 const elems = doc.querySelectorAll('.frame-type-t3gamingrecords_record');
                 const text = elems[0].textContent.trim();
                 const json = JSON.parse(text);
-                console.log(Object.assign({}, settings.full, json));
+
+
+                console.log(settings.full, json);
+                // console.log(Object.assign({}, settings.full, json));
 
                 elements.forEach(e => {
                     let chart_record = Highcharts.chart(e, Object.assign({}, Object.assign({}, settings.full, json), settings.record));
