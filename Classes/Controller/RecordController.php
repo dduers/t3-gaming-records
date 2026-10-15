@@ -54,10 +54,10 @@ class RecordController extends BaseController
 
         $demandDto = GeneralUtility::makeInstance(RecordDemand::class);
 
-        DebuggerUtility::var_dump(['settings:' => $this->settings, "request:" => $this->request, "records" => $records]);
-
         $demand = $demandDto->createDemand($this->settings, $this->request);
         $records = $this->recordRepository->findRecordsByDemand($demand);
+
+        DebuggerUtility::var_dump(['settings' => $this->settings, "request" => $this->request, "demand" => $demand, "records" => $records]);
 
         try {
             $fileRepository = GeneralUtility::makeInstance(FileRepository::class);
