@@ -53,7 +53,7 @@ export function highcharts_init() {
                 const doc = parser.parseFromString(html, 'text/html');
                 const elements = doc.querySelectorAll('.frame-type-t3gamingrecords_record');
                 elements[0].textContent.trim();
-            }).then(json => console.log(json.json()))
+            }).then(json => console.log(json))
 
 
 
