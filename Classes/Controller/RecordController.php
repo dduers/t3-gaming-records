@@ -53,6 +53,9 @@ class RecordController extends BaseController
         $recordId = (int)($this->request->getArgument('recordId') ?? 0);
 
         $demandDto = GeneralUtility::makeInstance(RecordDemand::class);
+
+        DebuggerUtility::var_dump(['settings:' => $this->settings, "request:" => $this->request, "records" => $records]);
+
         $demand = $demandDto->createDemand($this->settings, $this->request);
         $records = $this->recordRepository->findRecordsByDemand($demand);
 
