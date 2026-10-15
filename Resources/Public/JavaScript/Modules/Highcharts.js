@@ -52,7 +52,7 @@ export function highcharts_init() {
                 const parser = new DOMParser();
                 const doc = parser.parseFromString(html, 'text/html');
                 const elements = doc.querySelectorAll('.frame-type-t3gamingrecords_record');
-                console.log(elements);
+                console.log(elements[0].textContent);
             });
 
 
