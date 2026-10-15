@@ -12,12 +12,13 @@ ajaxResponse {
     // 10.value = {"response": "true"}
     10 = USER
     10 {
-        userFunc = TYPO3\CMS\Extcore\Core\Bootstrap->run
-        vendorName = Dduers
-        extensionName = T3GamingRecords
-        pluginName = RecordChart
-        controller = RecordChartController
-        action = showAction
+        // userFunc = TYPO3\CMS\Extcore\Core\Bootstrap->run
+        userFunc = Dduers\T3GamingRecords\Controller\RecordChartController->showAction
+        // vendorName = Dduers
+        // extensionName = T3GamingRecords
+        // pluginName = RecordChart
+        // controller = RecordChartController
+        // action = showAction
 
         # Explicitly map the action to a numeric index
         switchableControllerActions {
