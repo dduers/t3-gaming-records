@@ -7,6 +7,7 @@ use Dduers\T3GamingRecords\Domain\Repository\RecordRepository;
 use Psr\Http\Message\ResponseInterface;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
+use \TYPO3\CMS\Core\Attribute\AsAllowedCallable;
 
 class RecordChartController extends BaseController
 {
@@ -14,6 +15,7 @@ class RecordChartController extends BaseController
         private readonly RecordRepository $recordRepository
     ) {}
 
+    #[AsAllowedCallable]
     public function showAction(): ResponseInterface
     {
         $recordId = (int)($this->request->getQueryParams()['tx_t3gamingrecords_record']['recordId'] ?? 0);
